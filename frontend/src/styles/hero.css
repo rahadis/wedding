@@ -1,0 +1,56 @@
+/* Container hero utama */
+.hero-container {
+  height: 65vh;
+  width: 100vw;
+  background-image: url('/BgFlower.png');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Konten dalam hero */
+.hero-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Judul hero */
+.hero-title {
+  color: #fff;
+  font-size: 2.5rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  padding: 32px 24px 24px 24px;
+  border-radius: 16px;
+}
+
+/* Garis pemisah di bawah judul */
+.hero-divider {
+  border: none;
+  border-top: 4px solid #fff;
+  width: 180px;
+  margin: 0 auto;
+}
+
+/* Style untuk kolom stats */
+.stats-col {
+  padding-left: 15px;
+  padding-right: 15px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stats-col:nth-child(3n) {
+  border-right: none;
+}
+
+@media (max-width: 767.98px) {
+  .stats-col {
+    border-right: none !important;
+  }
+}
+
+.stats-col h2 {
+  color: #014AB0 !important;
+}

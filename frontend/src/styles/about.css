@@ -1,0 +1,79 @@
+.about-container {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f4f1;
+    padding: 40px;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff8f2;
+    padding: 10px 40px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .navbar .logo {
+    font-weight: bold;
+    font-size: 22px;
+    color: #b67e5c;
+  }
+  
+  .navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .navbar a:hover {
+    color: #b67e5c;
+  }
+  
+  .about-content {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .about-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #b67e5c;
+  }
+  
+  .about-description {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  
+  .about-logo {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .about-logo img {
+    max-height: 80px;
+  }
+  
+  .about-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+  }
+  
+  .about-icons img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  

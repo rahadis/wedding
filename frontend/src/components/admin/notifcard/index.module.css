@@ -1,0 +1,9 @@
+.list-item-hover {
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.list-item-hover:hover {
+  background-color: #e9f2ff !important;
+}

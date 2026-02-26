@@ -1,0 +1,216 @@
+/* Add these styles at the top of the file */
+.services-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  z-index: 1000;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+/* Services Page Styles - Updated with white background */
+.services-section {
+  background: #ffffff;
+  padding: 100px 20px 50px; /* Increased top padding from 50px to 100px */
+  width: 100%;
+}
+
+.services-title {
+  color: #1c57bc;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 3.2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 0.5rem; /* Reduced from 1rem */
+}
+
+.services-subtitle-desc {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 1rem; /* Reduced from 2.5rem to 1rem */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 2px solid #f1f5f9;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  border-color: #e2e8f0;
+}
+
+.category-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.category-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-image {
+  transform: scale(1.1);
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(28, 87, 188, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.category-card:hover .category-overlay {
+  opacity: 1;
+}
+
+.category-btn {
+  background: white;
+  color: #1c57bc;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category-card:hover .category-btn {
+  transform: translateY(0);
+}
+
+.category-btn:hover {
+  background: #1c57bc;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(28, 87, 188, 0.3);
+}
+
+.category-content {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+}
+
+.category-name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.category-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Enhanced card visibility on white background */
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(28, 87, 188, 0.02), rgba(59, 130, 246, 0.02));
+  border-radius: 20px;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover::before {
+  background: linear-gradient(135deg, rgba(28, 87, 188, 0.05), rgba(59, 130, 246, 0.05));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 80px 15px 30px;
+  }
+
+  .services-title {
+    font-size: 2.5rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .category-overlay {
+    opacity: 1;
+    background: rgba(28, 87, 188, 0.7);
+  }
+
+  .category-btn {
+    transform: translateY(0);
+  }
+
+  .category-card {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .category-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* Additional Bootstrap integration styles */
+.container-fluid {
+  max-width: 1400px;
+}
+
+@media (min-width: 576px) {
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}

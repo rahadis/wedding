@@ -1,0 +1,72 @@
+.card-deal {
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem 0.5rem 0 0 !important;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card-deal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card-deal img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+
+.card-deal .card-body {
+  padding: 1.25rem;
+}
+
+.card-deal h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.card-deal p,
+.card-deal ul {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.card-deal ul {
+  padding-left: 1.2rem;
+}
+
+.card-deal ul li::before {
+  content: "✓ ";
+  color: #28a745;
+  margin-right: 4px;
+}
+
+.card-deal .price {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.card-deal .select-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.card-deal .select-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}

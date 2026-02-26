@@ -1,0 +1,268 @@
+/* Notifikasi Page Styles - Terpisah dari Profil */
+.notifikasi-page {
+    max-width: 900px;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+  }
+  
+  .notifikasi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .notifikasi-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: left; /* Rata kiri */
+  }
+  
+  .notifikasi-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .unread-count {
+    font-size: 0.875rem;
+    color: #64748b;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    text-align: center; /* Center untuk badge count */
+  }
+  
+  .btn-mark-all {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  }
+  
+  .btn-mark-all:hover {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  }
+  
+  .notifikasi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .notifikasi-item {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    border-left: 4px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    border: 1px solid #f1f5f9;
+    text-align: left; /* Rata kiri untuk seluruh item */
+  }
+  
+  .notifikasi-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .notifikasi-item.unread {
+    border-left-color: #2563eb;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+  }
+  
+  .notifikasi-item.success {
+    border-left-color: #10b981;
+  }
+  
+  .notifikasi-item.warning {
+    border-left-color: #f59e0b;
+  }
+  
+  .notifikasi-item.error {
+    border-left-color: #ef4444;
+  }
+  
+  .notifikasi-item.info {
+    border-left-color: #3b82f6;
+  }
+  
+  .notifikasi-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1rem;
+    text-align: left; /* Rata kiri */
+  }
+  
+  .notifikasi-main {
+    flex: 1;
+    text-align: left; /* Rata kiri */
+  }
+  
+  .notifikasi-judul {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    text-align: left; /* Rata kiri */
+  }
+  
+  .notifikasi-item.read .notifikasi-judul {
+    color: #64748b;
+  }
+  
+  .notifikasi-pesan {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    text-align: left; /* Rata kiri */
+  }
+  
+  .notifikasi-waktu {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: left; /* Rata kiri */
+  }
+  
+  .notifikasi-actions-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start; /* Rata kiri untuk tombol aksi */
+  }
+  
+  .btn-mark-read {
+    background: linear-gradient(135deg, #64748b, #475569);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .btn-mark-read:hover {
+    background: linear-gradient(135deg, #475569, #334155);
+    transform: translateY(-1px);
+  }
+  
+  .unread-indicator {
+    width: 0.75rem;
+    height: 0.75rem;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+  }
+  
+  .empty-state {
+    text-align: center; /* Center untuk empty state karena ini informational */
+    padding: 4rem 2rem;
+    color: #64748b;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .empty-state p {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .notifikasi-page {
+      padding: 1rem;
+    }
+  
+    .notifikasi-header {
+      flex-direction: column;
+      align-items: flex-start; /* Rata kiri untuk mobile */
+    }
+  
+    .notifikasi-title {
+      text-align: left; /* Tetap rata kiri di mobile */
+    }
+  
+    .notifikasi-actions {
+      width: 100%;
+      justify-content: flex-start; /* Rata kiri untuk actions di mobile */
+      flex-wrap: wrap;
+    }
+  
+    .notifikasi-item {
+      padding: 1rem;
+      text-align: left; /* Rata kiri */
+    }
+  
+    .notifikasi-content {
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: left; /* Rata kiri */
+    }
+  
+    .notifikasi-actions-item {
+      align-self: flex-start; /* Rata kiri untuk tombol */
+      width: 100%;
+    }
+  
+    .btn-mark-read {
+      width: auto; /* Tidak full width, sesuai content */
+      align-self: flex-start; /* Rata kiri */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .notifikasi-title {
+      font-size: 1.75rem;
+      text-align: left; /* Rata kiri */
+    }
+  
+    .notifikasi-item {
+      padding: 0.75rem;
+    }
+  
+    .notifikasi-judul {
+      font-size: 1rem;
+      text-align: left; /* Rata kiri */
+    }
+  
+    .notifikasi-pesan {
+      font-size: 0.875rem;
+      text-align: left; /* Rata kiri */
+    }
+  
+    .notifikasi-actions {
+      justify-content: flex-start; /* Rata kiri */
+    }
+  }
+  

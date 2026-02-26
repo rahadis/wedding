@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+  }
+  
+  /* Dashboard Layout Styles - Complete restructure */
+  .dashboard-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  /* Sidebar Container - Fixed width */
+  .sidebar-container {
+    width: 256px;
+    min-width: 256px;
+    flex-shrink: 0;
+  }
+  
+  /* Sidebar Styles - Fixed Position */
+  .sidebar {
+    width: 256px;
+    background-color: #1f2937;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #374151;
+    min-height: 80px;
+    flex-shrink: 0;
+  }
+  
+  .sidebar-title {
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .sidebar-nav {
+    margin-top: 1.5rem;
+    flex: 1;
+    padding-bottom: 2rem;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    margin-bottom: 0.25rem;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: #d1d5db;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    background-color: #374151;
+    color: white;
+  }
+  
+  .nav-link.active {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  .nav-link svg {
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+  }
+  
+  /* Main Content - Flex grow to fill remaining space */
+  .main-content {
+    flex: 1;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+  }
+  
+  /* Content Wrapper - No margin needed anymore */
+  .content-wrapper {
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .sidebar-container {
+      width: 220px;
+      min-width: 220px;
+    }
+  
+    .sidebar {
+      width: 220px;
+    }
+  
+    .sidebar-title {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar-container {
+      width: 200px;
+      min-width: 200px;
+    }
+  
+    .sidebar {
+      width: 200px;
+    }
+  
+    .sidebar-title {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .sidebar-container {
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+    }
+  
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+    }
+  
+    .sidebar-nav {
+      margin-top: 0.5rem;
+    }
+  
+    .nav-link {
+      padding: 0.5rem 1rem;
+    }
+  }
+  

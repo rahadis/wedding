@@ -1,0 +1,17 @@
+.event-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .text-primary-custom {
+    color: #014ab0;
+  }
+  
+  .carousel-inner img {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  
