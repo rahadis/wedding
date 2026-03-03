@@ -26,5 +26,8 @@ class Transaction extends Model
     {
         return $this->hasOne(Confirmation::class, 'transactions_id');
     }
-
+    public function eventReport()
+    {
+        return $this->hasOne(EventReport::class);
+    }
 }

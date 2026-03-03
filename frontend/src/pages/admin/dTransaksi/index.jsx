@@ -9,8 +9,12 @@ import {
   getTransactions,
 } from "../../../_services/transaction";
 import TableCard from "../../../components/admin/table";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function DaftarTransaksi() {
+  const navigate = useNavigate();
   const [transactions, setTransactions] = useState([]);
   const columns = [
     { title: "ID", dataIndex: "id" },
@@ -74,6 +78,13 @@ export default function DaftarTransaksi() {
               data={transactions}
               renderAction={(transaksi) => (
                 <>
+                  <button
+                    className="btn btn-sm btn-primary sm-2"
+                    onClick={() => navigate(`/admin/event-report/${transaksi.id}`)}
+                  >
+                    Buat Laporan
+                  </button>
+
                   <button
                     className="btn btn-sm btn-danger"
                     onClick={() => handleDelete(transaksi.id)}

@@ -186,6 +186,15 @@ export default function Sidebar() {
                     Laporan Konfirmasi
                   </Link>
                 </li>
+                <li className="nav-item" style={{ paddingLeft: "12px" }}>
+                  <Link
+                    to="/admin/event-reports"
+                    className="text-white text-decoration-none"
+                  >
+                    Laporan Event
+                  </Link>
+                </li>
+                
               </ul>
             </div>
           )}

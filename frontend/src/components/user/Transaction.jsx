@@ -5,6 +5,8 @@ import { createTransactions, getTransactions,  } from "../../_services/transacti
 import { packagesImage } from "../../_api";
 import { createConfirmations } from "../../_services/confirmation";
 
+
+
 export default function Transaction() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -205,9 +207,12 @@ export default function Transaction() {
       setPaymentStep("select");
       alert("✅ Transaksi berhasil dikirim!");
     } catch (err) {
-      console.error("❌ Gagal kirim transaksi:", err);
-      alert("Terjadi kesalahan saat mengirim transaksi.");
-    } finally {
+      if (err.response?.status === 422) {
+        alert(err.response.data.message);
+      } else {
+        alert("Terjadi kesalahan saat mengirim transaksi.");
+      }
+    }finally {
       setIsSubmitting(false);
     }
   };

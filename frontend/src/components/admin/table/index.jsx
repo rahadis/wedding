@@ -72,7 +72,9 @@ export default function TableCard({
                 <tr key={row.id}>
                   {columns.map((col, index) => (
                     <td key={`${row.id}-${col.dataIndex}-${index}`}>
-                      {row[col.dataIndex]}
+                      {col.render
+                        ? col.render(row[col.dataIndex], row)
+                        : row[col.dataIndex]}
                     </td>
                   ))}
                   <td>{renderAction && renderAction(row)}</td>

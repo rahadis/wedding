@@ -43,49 +43,62 @@ class TransactionController extends Controller
     }
 
     
-    public function store(Request $request){
-        $customerId = $request->user()->id;
+public function store(Request $request)
+{
+    $customerId = $request->user()->id;
 
-        $validator = Validator::make($request->all(),[
-            'packages_id' => 'required|integer',
-            'event_name' => 'required|string',
-            'event_date' => 'required|string',
-            'event_time' => 'required|string',
-            'venue' => 'required|string',
-            'guest_count' => 'required|integer',
-            'special_requests' => 'required|string'
-        ]);
+    $validator = Validator::make($request->all(), [
+        'packages_id' => 'required|integer',
+        'event_name' => 'required|string',
+        'event_date' => 'required|date',
+        'event_time' => 'required|string',
+        'venue' => 'required|string',
+        'guest_count' => 'required|integer',
+        'special_requests' => 'required|string'
+    ]);
 
-        if ($validator->fails()){
-            return response()->json([
-                'success' => false,
-                'message' => $validator->errors()
-            ], 422);
-        }
-
-        $package = Package::findOrFail($request->packages_id);
-        $total = $package->price;
-
-        $transaction = Transaction::create([
-            'user_id' => $customerId,
-            'packages_id' => $request->packages_id,
-            'event_name' => $request->event_name,
-            'event_date' => $request->event_date,
-            'event_time' => $request->event_time,
-            'venue' => $request->venue,
-            'guest_count' => $request->guest_count,
-            'special_requests' => $request->special_requests,
-            'total' => $total,
-            'transaction_date' => now()->toDateString(),
-            'status' => 'Waiting verification'
-        ]);
-
+    if ($validator->fails()) {
         return response()->json([
-            "success" => true,
-                "message" => "Get All Resource",
-                "data" => $transaction
-        ], 201); 
+            'success' => false,
+            'message' => $validator->errors()
+        ], 422);
     }
+
+    // 🔥 CEK APAKAH TANGGAL SUDAH DIBOOKING
+    $dateExists = Transaction::where('event_date', $request->event_date)
+        ->whereIn('status', ['Waiting verification', 'Paid'])
+        ->exists();
+
+    if ($dateExists) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Tanggal tersebut sudah dibooking, silakan pilih tanggal lain.'
+        ], 422);
+    }
+
+    $package = Package::findOrFail($request->packages_id);
+    $total = $package->price;
+
+    $transaction = Transaction::create([
+        'user_id' => $customerId,
+        'packages_id' => $request->packages_id,
+        'event_name' => $request->event_name,
+        'event_date' => $request->event_date,
+        'event_time' => $request->event_time,
+        'venue' => $request->venue,
+        'guest_count' => $request->guest_count,
+        'special_requests' => $request->special_requests,
+        'total' => $total,
+        'transaction_date' => now()->toDateString(),
+        'status' => 'Waiting verification'
+    ]);
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Booking berhasil dibuat',
+        'data' => $transaction
+    ], 201);
+}
 
     public function show($id){
         $transaction = Transaction::find($id);

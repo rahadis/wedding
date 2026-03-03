@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 // Auth
 import Login from "./components/user/auth/login";
 import Register from "./components/user/auth/register";
+import { logout } from "./_services/auth";
 
 // Halaman user
 import Home from "./pages/user/home";
@@ -34,6 +35,19 @@ import UserLayout from "./layout/user";
 import AdminLayout from "./layout/admin";
 // import Transaksi from "./components/user/dashboard/transaksi";
 
+//Chat
+import Chat from "./pages/user/chat";
+
+//Transaksi
+import ProtectedRoute from "./components/user/ProtectedRoute";
+
+//Event Report
+
+import DEventReport from "./pages/admin/dEventReport";
+import EventReportForm from "./pages/admin/EventReportForm";
+
+
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
@@ -46,12 +60,19 @@ function App() {
     setUsername(storedUsername || "");
   }, []);
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUsername("");
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("username");
-  };
+const handleLogout = async () => {
+  try {
+    await logout();
+  } catch (err) {
+    console.log(err);
+  }
+
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("userInfo");
+
+  setIsLoggedIn(false);
+  setUsername("");
+};
 
   return (
     <BrowserRouter>
@@ -121,7 +142,24 @@ function App() {
             </AdminLayout>
           }
         />
+      <Route
+        path="/admin/event-report/:transactionId"
+        element={
+          <AdminLayout>
+            <EventReportForm />
+          </AdminLayout>
+        }
+      />
 
+      <Route
+        path="/admin/event-reports"
+        element={
+          <AdminLayout>
+            <DEventReport />
+          </AdminLayout>
+        }
+      />
+        
         {/* User Routes */}
         <Route
           path="/login"
@@ -216,6 +254,7 @@ function App() {
         <Route
           path="/transaction"
           element={
+            <ProtectedRoute>
             <UserLayout
               isLoggedIn={isLoggedIn}
               username={username}
@@ -223,6 +262,7 @@ function App() {
             >
               <Transaction />
             </UserLayout>
+            </ProtectedRoute>
           }
         />
         <Route
@@ -237,7 +277,18 @@ function App() {
             </UserLayout>
           }
         />
-
+        <Route
+          path="/chat"
+          element={
+            <UserLayout
+              isLoggedIn={isLoggedIn}
+              username={username}
+              onLogout={handleLogout}
+            >
+              <Chat />
+            </UserLayout>
+          }
+        />
         {/* User Dashboard Routes */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route path="profile" element={<Profile />} />

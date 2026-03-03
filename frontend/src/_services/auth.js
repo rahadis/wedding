@@ -21,20 +21,13 @@ export const register = async (data) => {
   }
 };
 
-export const logout = async ({ token, userInfo }) => {
+export const logout = async () => {
   try {
-    const { data } = await API.post(
-      "/logout",
-      { token, userInfo },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    );
+    const { data } = await API.post("/logout");
 
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userInfo");
+
     return data;
   } catch (error) {
     console.log(error);

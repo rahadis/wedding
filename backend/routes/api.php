@@ -6,9 +6,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ConfirmationController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventReportController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Pest\Plugins\Only;
+use App\Http\Controllers\ChatController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -38,6 +40,10 @@ Route::middleware('auth:api')->group(function () {
     // 3. Transaksi
     Route::apiResource('transactions', TransactionController::class)->only(['store','index','show']);
 
+    // 4. Chat
+    Route::post('/chat/user', [ChatController::class, 'sendFromUser']);
+    Route::post('/chat/admin/{userId}', [ChatController::class, 'sendFromAdmin']);
+    Route::get('/chat/{userId}', [ChatController::class, 'getChat']);
     //Admin only
     Route::middleware(['role:admin'])->group(function () {
         // 1. Lihat user
@@ -54,5 +60,13 @@ Route::middleware('auth:api')->group(function () {
         
         // 5. Kategori
         Route::apiResource('categories', CategoryController::class)->except(['index','show']);
+
+        // 6. Event Report
+
+        Route::apiResource('event-reports', EventReportController::class);
     });
-});
+
+    });
+
+
+
