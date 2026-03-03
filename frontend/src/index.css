@@ -1,3 +1,134 @@
+/* Global Navy Theme */
+:root {
+  --primary-navy: #001f3f;
+  --secondary-navy: #003d7a;
+  --accent-blue: #0066cc;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --light-gray: #f5f7fa;
+  --border-color: #e5e7eb;
+  --text-dark: #1a2332;
+  --text-muted: #6c757d;
+}
+
 body {
-  background-color: #f8f9fa !important;
+  background-color: #f5f7fa !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  color: var(--text-dark);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--primary-navy) !important;
+  border-color: var(--primary-navy) !important;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-navy) !important;
+  border-color: var(--secondary-navy) !important;
+  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.2);
+}
+
+.btn-outline-primary {
+  color: var(--primary-navy) !important;
+  border-color: var(--primary-navy) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-navy) !important;
+  border-color: var(--primary-navy) !important;
+}
+
+/* Form Control Styles */
+.form-control {
+  border-color: var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-navy) !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 31, 63, 0.25) !important;
+}
+
+/* Card Styles */
+.card {
+  border-color: var(--border-color) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Table Styles */
+.table {
+  color: var(--text-dark);
+}
+
+.table thead th {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  border-color: var(--secondary-navy);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr:hover {
+  background-color: #f0f4f8 !important;
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+  border-color: var(--border-color) !important;
+  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.15) !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--primary-navy) !important;
+}
+
+/* Badge Styles */
+.badge {
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.bg-success {
+  background-color: var(--success) !important;
+}
+
+.badge.bg-warning {
+  background-color: var(--warning) !important;
+}
+
+.badge.bg-danger {
+  background-color: var(--danger) !important;
+}
+
+/* Text Styles */
+.text-primary {
+  color: var(--primary-navy) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Utility Classes */
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.rounded-3 {
+  border-radius: 12px !important;
+}
+
+.rounded-4 {
+  border-radius: 16px !important;
 }

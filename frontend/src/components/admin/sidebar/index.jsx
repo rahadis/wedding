@@ -37,16 +37,17 @@ export default function Sidebar() {
         marginLeft: "20px",
         marginBottom: "20px",
         borderRadius: "15px",
-        background: "#033b5d",
+        background: "linear-gradient(135deg, #001f3f 0%, #003d7a 100%)",
         display: "flex",
         flexDirection: "column",
         padding: "1rem",
+        boxShadow: "0 4px 12px rgba(0, 31, 63, 0.15)",
       }}
     >
       <h4 className="mb-4 d-flex align-items-center justify-content-start gap-2">
         <img
           src="/logo.png"
-          alt="Profile"
+          alt="Logo"
           style={{
             width: "40px",
             height: "40px",
@@ -55,11 +56,13 @@ export default function Sidebar() {
             border: "2px solid white",
           }}
         />
-        Event Pora
+        Pendidikan Pora
       </h4>
 
       <ul className="nav flex-column gap-2">
-        <li className="nav-item d-flex align-items-center gap-2">
+        <li className="nav-item d-flex align-items-center gap-2" style={{ padding: "8px 12px", borderRadius: "8px", transition: "all 0.3s ease" }} 
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)"}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}>
           <FaHome />
           <Link
             to="/admin/dashboard"
@@ -72,10 +75,12 @@ export default function Sidebar() {
         <li className="nav-item position-relative">
           <div
             className="d-flex align-items-center gap-2"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", padding: "8px 12px", borderRadius: "8px", transition: "all 0.3s ease" }}
             onClick={() => setOpenKelola(!openKelola)}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)"}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
           >
-            <FaDatabase /> Kelola data
+            <FaDatabase /> Data Master
             <span style={{ marginLeft: "auto" }}>
               {openKelola ? <FaChevronUp /> : <FaChevronDown />}
             </span>
@@ -141,8 +146,10 @@ export default function Sidebar() {
         <li className="nav-item position-relative">
           <div
             className="d-flex align-items-center gap-2"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", padding: "8px 12px", borderRadius: "8px", transition: "all 0.3s ease" }}
             onClick={() => setOpenTransaksi(!openTransaksi)}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)"}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
           >
             <FaMoneyBill /> Transaksi
             <span style={{ marginLeft: "auto" }}>
@@ -200,13 +207,15 @@ export default function Sidebar() {
           )}
         </li>
 
-        <li className="nav-item d-flex align-items-center gap-2">
+        <li className="nav-item d-flex align-items-center gap-2" style={{ padding: "8px 12px", borderRadius: "8px", transition: "all 0.3s ease" }}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)"}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}>
           <FaCalendarAlt />
           <Link 
             to="/admin/event" 
             className="text-white text-decoration-none"
           >
-            Event
+            Manajemen Event
           </Link>
         </li>
       </ul>

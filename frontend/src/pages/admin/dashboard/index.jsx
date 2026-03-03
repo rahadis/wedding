@@ -16,6 +16,7 @@ import {
   FaCalendarCheck,
   FaClock,
   FaInfoCircle,
+  FaMoneyBill,
 } from "react-icons/fa";
 
 export default function Dashboard() {
@@ -25,6 +26,7 @@ export default function Dashboard() {
   const [, setUser] = useState([]);
   const [topPackages, setTopPackages] = useState([]);
   const [sortOrder, setSortOrder] = useState("newest");
+  const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
 
   const sortedTransactions = [...transaction].sort((a, b) => {
     const dateA = new Date(a.transaction_date);
@@ -174,38 +176,59 @@ export default function Dashboard() {
       <Sidebar />
       <div className="flex-grow-1">
         <Topbar />
-        <div className="p-4">
-          <div className="row g-3">
-            <div className="col-md-4">
+        <div className="p-4" style={{ backgroundColor: "#f5f7fa", minHeight: "calc(100vh - 120px)" }}>
+          <div className="mb-4">
+            <h2 style={{ color: "#001f3f", fontWeight: "700", marginBottom: "4px" }}>
+              Selamat Datang, {userInfo?.name || "Admin"}
+            </h2>
+            <p style={{ color: "#6c757d", fontSize: "14px", margin: 0 }}>
+              Kelola semua acara pendidikan Anda dari sini
+            </p>
+          </div>
+
+          <div className="row g-3 mb-4">
+            <div className="col-md-6 col-lg-3">
               <StatCard
                 icon={<FaCalendarCheck size={24} />}
-                title="Total Event"
+                title="Total Event Pendidikan"
                 count={statistik.totalEvent}
                 percentage={statistik.eventPercentage}
+                trend="up"
               />
             </div>
-            <div className="col-md-4">
+            <div className="col-md-6 col-lg-3">
+              <StatCard
+                icon={<FaUsers size={24} />}
+                title="Total Peserta"
+                count={statistik.totalUsers}
+                percentage={statistik.userPercentage}
+                trend="up"
+              />
+            </div>
+            <div className="col-md-6 col-lg-3">
               <StatCard
                 icon={<FaClock size={24} />}
                 title="Transaksi Pending"
                 count={statistik.totalPending}
                 percentage={statistik.pendingPercentage}
+                trend={statistik.pendingPercentage.includes('0') ? "down" : "up"}
               />
             </div>
-            <div className="col-md-4">
+            <div className="col-md-6 col-lg-3">
               <StatCard
-                icon={<FaUsers size={24} />}
-                title="Total User"
-                count={statistik.totalUsers}
-                percentage={statistik.userPercentage}
+                icon={<FaMoneyBill size={24} />}
+                title="Total Pendapatan"
+                count={statistik.totalEvent * 1000}
+                percentage={statistik.eventPercentage}
+                trend="up"
               />
             </div>
           </div>
 
           <div className="row g-3">
-            <div className="col-md-8">
+            <div className="col-lg-8">
               <TableCard
-                title="Daftar Event"
+                title="Event Terbaru"
                 columns={columns}
                 data={displayedTransactions}
                 renderAction={(event) => (
@@ -222,7 +245,7 @@ export default function Dashboard() {
               />
             </div>
 
-            <div className="col-md-4">
+            <div className="col-lg-4">
               <SideCard1 data={topPackages.slice(0, 3)} />
               <NotifikasiCard
                 data={transaction.slice(0, 3).map((trx) => ({
