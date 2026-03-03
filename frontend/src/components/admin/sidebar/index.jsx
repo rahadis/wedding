@@ -55,7 +55,7 @@ export default function Sidebar() {
             border: "2px solid white",
           }}
         />
-        Event Pora
+        EduEvent Pro
       </h4>
 
       <ul className="nav flex-column gap-2">

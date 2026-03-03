@@ -37,7 +37,7 @@ export default function AboutUs() {
             textShadow: "0 2px 8px rgba(0,0,0,0.10)"
           }}
         >
-          Kami adalah jasa Event Planner Organizer secara Online dan Offline profesional yang siap menciptakan nuansa acara berkesan dan tentunya menjadi memori terbaik. Tim EO kami akan membantu Anda menemukan konsep terbaik untuk acara seminar, konser musik, bazaar, outbound dan event lain yang tidak akan terlupakan!
+          Kami adalah spesialis Event Organizer Pendidikan yang siap menciptakan momen akademik yang berkesan. Tim kami ahli dalam merancang MPLS, LDKMS, Wisuda, dan Seminar Edukasi yang inspiratif bagi siswa dan instansi pendidikan.
         </p>
       </div>
 
@@ -63,15 +63,15 @@ export default function AboutUs() {
               textAlign: "justify",
             }}
           >
-            Event Pora melayani jasa event organizer (EO) di Surabaya yang telah berpengalaman dalam menyelenggarakan berbagai event indoor ataupun outdoor, seperti bazaar produk perusahaan, wisuda kuliah, konser musik, hingga event outbound dengan konsep yang unik dan menarik.
+            EduEvent Pro melayani jasa event organizer (EO) pendidikan yang telah berpengalaman dalam menyelenggarakan berbagai event akademik, seperti MPLS, LDKMS, wisuda, hingga seminar edukasi dengan konsep yang inspiratif dan menarik.
             <br /><br />
-            Tim event organizer (EO) Event Pora akan merancang acara sesuai dengan kebutuhan Anda dan membuka diskusi untuk bertukar ide rancangan acara yang akan diselenggarakan nanti. Beberapa perusahaan telah mempercayakan EO kami untuk menyelenggarakan event bazaar serta kegiatan outbound dan kami juga sebagai EO profesional selalu menentukan venue yang tepat untuk acara Anda. Kami tidak hanya berkontribusi untuk acara perkantoran saja, tapi kami juga memberikan acara yang meriah untuk anak-anak sekolah/kuliah, nikah online atau offline, reuni keluarga, pagelaran, hingga beberapa jenis acara yang meriah dan mengesankan.
+            Tim event organizer (EO) EduEvent Pro akan merancang acara sesuai dengan kebutuhan pendidikan Anda dan membuka diskusi untuk bertukar ide rancangan acara yang akan diselenggarakan nanti. Berbagai instansi pendidikan telah mempercayakan EO kami untuk menyelenggarakan kegiatan kesiswaan serta seminar nasional dan kami juga sebagai EO profesional selalu menentukan venue yang tepat untuk acara Anda. Kami fokus pada memberikan pengalaman yang meriah dan edukatif untuk siswa, guru, hingga praktisi pendidikan.
           </p>
         </div>
         <div className="col-md-6 d-flex justify-content-center">
           <img
             src="/image1.png"
-            alt="Event Pora"
+            alt="EduEvent Pro"
             style={{
               maxWidth: "100%",
               borderRadius: "12px",

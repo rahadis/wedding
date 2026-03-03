@@ -26,7 +26,7 @@ export default function Footer() {
               style={{ height: "32px", marginRight: "8px" }}
             />
             <span className="ms-2" style={{ fontSize: "1rem", fontWeight: 500 }}>
-              Event Pora
+              EduEvent Pro
             </span>
           </a>
         </div>
@@ -93,7 +93,7 @@ export default function Footer() {
           </li>
         </ul>
         <p className="w-100 text-center text-body-secondary mt-2 mb-0">
-          &copy; 2025 Event Pora
+          &copy; 2025 EduEvent Pro
         </p>
       </footer>
     );

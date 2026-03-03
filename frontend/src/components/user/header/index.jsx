@@ -29,7 +29,7 @@ export default function Header() {
             alt="Logo"
             style={{ height: "60px", marginRight: "6px" }}
           />
-          Event Pora
+          EduEvent Pro
         </Link>
 
         {/* Navbar content */}
