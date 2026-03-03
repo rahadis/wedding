@@ -1,134 +1,91 @@
-/* Global Navy Theme */
-:root {
-  --primary-navy: #001f3f;
-  --secondary-navy: #003d7a;
-  --accent-blue: #0066cc;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --light-gray: #f5f7fa;
-  --border-color: #e5e7eb;
-  --text-dark: #1a2332;
-  --text-muted: #6c757d;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-education-light text-[#1a2332] font-sans;
+  }
+
+  h1 {
+    @apply text-3xl font-bold text-education-primary;
+  }
+
+  h2 {
+    @apply text-2xl font-bold text-education-primary;
+  }
+
+  h3 {
+    @apply text-xl font-bold text-education-primary;
+  }
+
+  h4, h5, h6 {
+    @apply font-bold text-education-primary;
+  }
+
+  p {
+    @apply text-gray-700;
+  }
 }
 
-body {
-  background-color: #f5f7fa !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  color: var(--text-dark);
-}
+@layer components {
+  .btn-primary {
+    @apply bg-education-primary hover:bg-education-secondary text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  }
 
-/* Button Styles */
-.btn-primary {
-  background-color: var(--primary-navy) !important;
-  border-color: var(--primary-navy) !important;
-  transition: all 0.3s ease;
-}
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-education-primary font-semibold px-4 py-2 rounded-lg transition-all duration-300;
+  }
 
-.btn-primary:hover {
-  background-color: var(--secondary-navy) !important;
-  border-color: var(--secondary-navy) !important;
-  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.2);
-}
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300;
+  }
 
-.btn-outline-primary {
-  color: var(--primary-navy) !important;
-  border-color: var(--primary-navy) !important;
-}
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
 
-.btn-outline-primary:hover {
-  background-color: var(--primary-navy) !important;
-  border-color: var(--primary-navy) !important;
-}
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200;
+  }
 
-/* Form Control Styles */
-.form-control {
-  border-color: var(--border-color) !important;
-  transition: all 0.3s ease;
-}
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
 
-.form-control:focus {
-  border-color: var(--primary-navy) !important;
-  box-shadow: 0 0 0 0.2rem rgba(0, 31, 63, 0.25) !important;
-}
+  .stat-card {
+    @apply bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300;
+  }
 
-/* Card Styles */
-.card {
-  border-color: var(--border-color) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-}
+  .badge-success {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800;
+  }
 
-/* Table Styles */
-.table {
-  color: var(--text-dark);
-}
+  .badge-warning {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-amber-100 text-amber-800;
+  }
 
-.table thead th {
-  background-color: var(--primary-navy);
-  color: #ffffff;
-  border-color: var(--secondary-navy);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-}
+  .badge-danger {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-800;
+  }
 
-.table tbody tr:hover {
-  background-color: #f0f4f8 !important;
-}
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-200 rounded-lg focus:border-education-primary focus:outline-none focus:ring-2 focus:ring-education-primary/20 transition-all duration-300;
+  }
 
-/* Dropdown Styles */
-.dropdown-menu {
-  border-color: var(--border-color) !important;
-  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.15) !important;
-}
+  .modal-overlay {
+    @apply fixed inset-0 bg-education-primary/50 flex items-center justify-center z-50;
+  }
 
-.dropdown-item.active,
-.dropdown-item:active {
-  background-color: var(--primary-navy) !important;
-}
+  .modal-content {
+    @apply bg-white rounded-xl shadow-xl overflow-hidden max-w-2xl w-full mx-4;
+  }
 
-/* Badge Styles */
-.badge {
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 600;
-}
+  .table-header {
+    @apply bg-education-primary text-white font-semibold uppercase text-sm tracking-wider;
+  }
 
-.badge.bg-success {
-  background-color: var(--success) !important;
-}
-
-.badge.bg-warning {
-  background-color: var(--warning) !important;
-}
-
-.badge.bg-danger {
-  background-color: var(--danger) !important;
-}
-
-/* Text Styles */
-.text-primary {
-  color: var(--primary-navy) !important;
-}
-
-.text-muted {
-  color: var(--text-muted) !important;
-}
-
-/* Utility Classes */
-.shadow-sm {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-}
-
-.rounded-3 {
-  border-radius: 12px !important;
-}
-
-.rounded-4 {
-  border-radius: 16px !important;
+  .sidebar-item {
+    @apply px-4 py-3 rounded-lg transition-colors duration-300 hover:bg-white/15 cursor-pointer;
+  }
 }

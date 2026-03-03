@@ -4,21 +4,20 @@ import {
   FaDatabase,
   FaMoneyBill,
   FaCalendarAlt,
-  FaCog,
   FaSignOutAlt,
   FaChevronDown,
   FaChevronUp,
 } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { logout } from "../../../_services/auth";
 
 export default function Sidebar() {
   const [openKelola, setOpenKelola] = useState(false);
   const [openTransaksi, setOpenTransaksi] = useState(false);
-
   const navigate = useNavigate();
+  const location = useLocation();
   const token = localStorage.getItem("accessToken");
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
 
   const handleLogout = async () => {
     if (token) {
@@ -27,205 +26,135 @@ export default function Sidebar() {
     navigate("/login");
   };
 
+  const isActive = (path) => location.pathname === path;
+
   return (
-    <div
-      className="text-white"
-      style={{
-        width: "250px",
-        height: "calc(100vh - 40px)",
-        marginTop: "20px",
-        marginLeft: "20px",
-        marginBottom: "20px",
-        borderRadius: "15px",
-        background: "linear-gradient(135deg, #001f3f 0%, #003d7a 100%)",
-        display: "flex",
-        flexDirection: "column",
-        padding: "1rem",
-        boxShadow: "0 4px 12px rgba(0, 31, 63, 0.15)",
-      }}
-    >
-      <h4 className="mb-4 d-flex align-items-center justify-content-start gap-2">
-        <img
-          src="/logo.png"
-          alt="Logo"
-          style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "50%",
-            objectFit: "cover",
-            border: "2px solid white",
-          }}
-        />
-        Pendidikan Pora
-      </h4>
+    <div className="w-64 bg-gradient-to-b from-education-primary to-education-secondary text-white h-screen fixed left-0 top-0 shadow-lg flex flex-col overflow-hidden">
+      {/* Logo Section */}
+      <div className="p-6 border-b border-white/10">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+            P
+          </div>
+          <div className="flex-1">
+            <h2 className="font-bold text-base text-white leading-tight">Pendidikan</h2>
+            <p className="text-xs text-white/70">Event Manager</p>
+          </div>
+        </div>
+      </div>
 
-      <ul className="nav flex-column gap-2">
-        <li className="nav-item d-flex align-items-center gap-2" style={{ padding: "8px 12px", borderRadius: "8px", transition: "all 0.3s ease" }} 
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)"}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}>
-          <FaHome />
-          <Link
-            to="/admin/dashboard"
-            className="text-white text-decoration-none"
-          >
-            Dashboard
-          </Link>
-        </li>
+      {/* Navigation Items */}
+      <nav className="flex-1 overflow-y-auto px-4 py-6 space-y-2">
+        {/* Dashboard */}
+        <Link
+          to="/admin/dashboard"
+          className={`sidebar-item flex items-center gap-3 ${
+            isActive("/admin/dashboard") ? "bg-white/20" : ""
+          }`}
+        >
+          <FaHome className="w-5 h-5 flex-shrink-0" />
+          <span className="text-sm font-medium">Dashboard</span>
+        </Link>
 
-        <li className="nav-item position-relative">
-          <div
-            className="d-flex align-items-center gap-2"
-            style={{ cursor: "pointer", padding: "8px 12px", borderRadius: "8px", transition: "all 0.3s ease" }}
+        {/* Manajemen Event */}
+        <Link
+          to="/admin/event"
+          className={`sidebar-item flex items-center gap-3 ${
+            isActive("/admin/event") ? "bg-white/20" : ""
+          }`}
+        >
+          <FaCalendarAlt className="w-5 h-5 flex-shrink-0" />
+          <span className="text-sm font-medium">Manajemen Event</span>
+        </Link>
+
+        {/* Data Master */}
+        <div>
+          <button
             onClick={() => setOpenKelola(!openKelola)}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)"}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+            className="sidebar-item flex items-center justify-between w-full gap-3"
           >
-            <FaDatabase /> Data Master
-            <span style={{ marginLeft: "auto" }}>
-              {openKelola ? <FaChevronUp /> : <FaChevronDown />}
-            </span>
-          </div>
-
+            <div className="flex items-center gap-3">
+              <FaDatabase className="w-5 h-5 flex-shrink-0" />
+              <span className="text-sm font-medium">Data Master</span>
+            </div>
+            {openKelola ? <FaChevronUp className="w-4 h-4" /> : <FaChevronDown className="w-4 h-4" />}
+          </button>
           {openKelola && (
-            <div
-              style={{
-                position: "relative",
-                paddingLeft: "16px",
-                marginTop: "8px",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  left: "4px",
-                  top: 0,
-                  bottom: 0,
-                  width: "2px",
-                  backgroundColor: "white",
-                  borderRadius: "2px",
-                }}
-              />
-              <ul className="nav flex-column mt-2 gap-1">
-                <li className="nav-item" style={{ paddingLeft: "12px" }}>
-                  <Link
-                    to="/admin/users"
-                    className="text-white text-decoration-none"
-                  >
-                    Data Users
-                  </Link>
-                </li>
-                <li className="nav-item" style={{ paddingLeft: "12px" }}>
-                  <Link
-                    to="/admin/admin"
-                    className="text-white text-decoration-none"
-                  >
-                    Data Admin
-                  </Link>
-                </li>
-                <li className="nav-item" style={{ paddingLeft: "12px" }}>
-                  <Link
-                    to="/admin/kategori"
-                    className="text-white text-decoration-none"
-                  >
-                    Data Kategori
-                  </Link>
-                </li>
-                <li className="nav-item" style={{ paddingLeft: "12px" }}>
-                  <Link
-                    to="/admin/package"
-                    className="text-white text-decoration-none"
-                  >
-                    Data Package
-                  </Link>
-                </li>
-              </ul>
+            <div className="ml-8 mt-2 space-y-2 border-l border-white/20 pl-4">
+              <Link 
+                to="/admin/users" 
+                className="block text-sm text-white/80 hover:text-white transition-colors py-1"
+              >
+                Data Users
+              </Link>
+              <Link 
+                to="/admin/admin" 
+                className="block text-sm text-white/80 hover:text-white transition-colors py-1"
+              >
+                Data Admin
+              </Link>
+              <Link 
+                to="/admin/kategori" 
+                className="block text-sm text-white/80 hover:text-white transition-colors py-1"
+              >
+                Data Kategori
+              </Link>
+              <Link 
+                to="/admin/package" 
+                className="block text-sm text-white/80 hover:text-white transition-colors py-1"
+              >
+                Data Package
+              </Link>
             </div>
           )}
-        </li>
+        </div>
 
-        <li className="nav-item position-relative">
-          <div
-            className="d-flex align-items-center gap-2"
-            style={{ cursor: "pointer", padding: "8px 12px", borderRadius: "8px", transition: "all 0.3s ease" }}
+        {/* Transaksi */}
+        <div>
+          <button
             onClick={() => setOpenTransaksi(!openTransaksi)}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)"}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+            className="sidebar-item flex items-center justify-between w-full gap-3"
           >
-            <FaMoneyBill /> Transaksi
-            <span style={{ marginLeft: "auto" }}>
-              {openTransaksi ? <FaChevronUp /> : <FaChevronDown />}
-            </span>
-          </div>
-
+            <div className="flex items-center gap-3">
+              <FaMoneyBill className="w-5 h-5 flex-shrink-0" />
+              <span className="text-sm font-medium">Transaksi</span>
+            </div>
+            {openTransaksi ? <FaChevronUp className="w-4 h-4" /> : <FaChevronDown className="w-4 h-4" />}
+          </button>
           {openTransaksi && (
-            <div
-              style={{
-                position: "relative",
-                paddingLeft: "16px",
-                marginTop: "8px",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  left: "4px",
-                  top: 0,
-                  bottom: 0,
-                  width: "2px",
-                  backgroundColor: "white",
-                  borderRadius: "2px",
-                }}
-              />
-              <ul className="nav flex-column mt-2 gap-1">
-                <li className="nav-item" style={{ paddingLeft: "12px" }}>
-                  <Link
-                    to="/admin/transaksi"
-                    className="text-white text-decoration-none"
-                  >
-                    Daftar Transaksi
-                  </Link>
-                </li>
-                <li className="nav-item" style={{ paddingLeft: "12px" }}>
-                  <Link
-                    to="/admin/laporan"
-                    className="text-white text-decoration-none"
-                  >
-                    Laporan Konfirmasi
-                  </Link>
-                </li>
-                <li className="nav-item" style={{ paddingLeft: "12px" }}>
-                  <Link
-                    to="/admin/event-reports"
-                    className="text-white text-decoration-none"
-                  >
-                    Laporan Event
-                  </Link>
-                </li>
-                
-              </ul>
+            <div className="ml-8 mt-2 space-y-2 border-l border-white/20 pl-4">
+              <Link 
+                to="/admin/transaksi" 
+                className="block text-sm text-white/80 hover:text-white transition-colors py-1"
+              >
+                Daftar Transaksi
+              </Link>
+              <Link 
+                to="/admin/laporan" 
+                className="block text-sm text-white/80 hover:text-white transition-colors py-1"
+              >
+                Laporan Konfirmasi
+              </Link>
+              <Link 
+                to="/admin/event-reports" 
+                className="block text-sm text-white/80 hover:text-white transition-colors py-1"
+              >
+                Laporan Event
+              </Link>
             </div>
           )}
-        </li>
+        </div>
+      </nav>
 
-        <li className="nav-item d-flex align-items-center gap-2" style={{ padding: "8px 12px", borderRadius: "8px", transition: "all 0.3s ease" }}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)"}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}>
-          <FaCalendarAlt />
-          <Link 
-            to="/admin/event" 
-            className="text-white text-decoration-none"
-          >
-            Manajemen Event
-          </Link>
-        </li>
-      </ul>
-
-      <div
-        className="mt-auto d-flex align-items-center gap-2"
-        style={{ cursor: "pointer" }}
-        onClick={handleLogout}
-      >
-        <FaSignOutAlt /> Keluar
+      {/* Footer */}
+      <div className="border-t border-white/10 p-4">
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center gap-3 px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors text-sm font-medium"
+        >
+          <FaSignOutAlt className="w-4 h-4" />
+          Keluar
+        </button>
       </div>
     </div>
   );

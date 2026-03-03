@@ -21,14 +21,14 @@ import Profile from "./components/user/dashboard/Profile";
 import Transaksi from "./components/user/dashboard/Transaksi";
 
 // Admin
-import Dashboard from "./pages/admin/dashboard";
+import Dashboard from "./pages/admin/Dashboard";
+import EventManagement from "./pages/admin/EventManagement";
 import DUser from "./pages/admin/dUser";
 import DAdmin from "./pages/admin/dAdmin";
 import DKategori from "./pages/admin/dKategori";
 import DPackage from "./pages/admin/dPackage";
 import DTransaksi from "./pages/admin/dTransaksi";
 import DLaporan from "./pages/admin/dLaporan";
-import DEvent from "./pages/admin/event";
 
 // Layout
 import UserLayout from "./layout/user";
@@ -80,11 +80,7 @@ const handleLogout = async () => {
         {/* Admin Routes */}
         <Route
           path="/admin/dashboard"
-          element={
-            <AdminLayout>
-              <Dashboard />
-            </AdminLayout>
-          }
+          element={<Dashboard />}
         />
         <Route
           path="/admin/users"
@@ -136,11 +132,7 @@ const handleLogout = async () => {
         />
         <Route
           path="/admin/event"
-          element={
-            <AdminLayout>
-              <DEvent />
-            </AdminLayout>
-          }
+          element={<EventManagement />}
         />
       <Route
         path="/admin/event-report/:transactionId"
