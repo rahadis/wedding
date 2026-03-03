@@ -25,7 +25,7 @@ export default function DEventReport() {
           <img
             src={`${storageUrl}/${doc}`}
             alt="Dokumentasi"
-            style={{ width: "80px" }}
+            style={{ width: "80px", borderRadius: "4px" }}
           />
         ) : (
           "Tidak ada"
@@ -116,24 +116,26 @@ export default function DEventReport() {
                 <h5 className="modal-title">Detail Laporan Event</h5>
                 <button type="button" className="btn-close" onClick={() => setShowViewModal(false)}></button>
               </div>
-              <div className="modal-body">
+              <div className="modal-body text-start">
                 {selectedReport && (
                   <div>
                     <p><strong>ID Laporan:</strong> {selectedReport.id}</p>
                     <p><strong>ID Transaksi:</strong> {selectedReport.transaction_id}</p>
                     <p><strong>Evaluasi:</strong></p>
-                    <div className="border p-2 bg-light mb-3" style={{ whiteSpace: "pre-wrap" }}>
+                    <div className="border p-3 bg-light mb-3 rounded" style={{ whiteSpace: "pre-wrap" }}>
                         {selectedReport.evaluation}
                     </div>
                     <p><strong>Dokumentasi:</strong></p>
                     {selectedReport.documentation ? (
-                      <img
-                        src={`${storageUrl}/${selectedReport.documentation}`}
-                        alt="Dokumentasi"
-                        style={{ maxWidth: "100%", borderRadius: "8px" }}
-                      />
+                      <div className="text-center">
+                        <img
+                          src={`${storageUrl}/${selectedReport.documentation}`}
+                          alt="Dokumentasi"
+                          style={{ maxWidth: "100%", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
+                        />
+                      </div>
                     ) : (
-                      <p className="text-muted italic">Tidak ada dokumentasi</p>
+                      <p className="text-muted fst-italic">Tidak ada dokumentasi</p>
                     )}
                   </div>
                 )}
