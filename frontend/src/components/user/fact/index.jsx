@@ -4,29 +4,29 @@ import "../../../styles/fact.css";
 export default function Fact() {
   const faqs = [
     {
-      question: "Layanan apa saja yang ditawarkan Event Pora?",
+      question: "Layanan apa saja yang ditawarkan EduEvent Pro?",
       answer:
-        "Event Pora menyediakan layanan lengkap untuk berbagai jenis acara seperti pernikahan, konser, seminar, ulang tahun, hingga acara perusahaan. Termasuk dekorasi, sistem suara, katering, dan dokumentasi.",
+        "EduEvent Pro menyediakan layanan lengkap untuk kegiatan edukasi seperti MPLS, LDKMS, seminar akademik, hingga wisuda. Kami menangani konsep acara, pemateri, dekorasi, hingga dokumentasi.",
     },
     {
-      question: "Apakah saya bisa meminta tema acara khusus?",
+      question: "Apakah saya bisa menyesuaikan paket dengan kurikulum sekolah?",
       answer:
-        "Tentu saja! Tim kreatif Event Pora siap mewujudkan ide dan konsep acara impian Anda.",
+        "Tentu saja! Kami selalu menyesuaikan konsep acara dengan nilai-nilai dan kurikulum yang diterapkan di institusi pendidikan Anda.",
     },
     {
-      question: "Bagaimana proses pemesanan di Event Pora?",
+      question: "Bagaimana proses pemesanan di EduEvent Pro?",
       answer:
-        "Anda bisa memesan langsung melalui website kami atau konsultasi via WhatsApp. Setelah dikonfirmasi, kami akan mengirimkan invoice dan timeline produksi acara.",
+        "Anda bisa melakukan pemesanan melalui website kami. Tim kami akan segera menghubungi untuk diskusi detail konsep dan jadwal pelaksanaan.",
     },
     {
-      question: "Apakah saya bisa membatalkan setelah booking?",
+      question: "Apakah EduEvent Pro menyediakan pemateri atau instruktur?",
       answer:
-        "Bisa, namun akan dikenakan biaya pembatalan sesuai dengan waktu pembatalan berdasarkan kebijakan Event Pora.",
+        "Ya, kami memiliki jaringan pemateri profesional dan instruktur berpengalaman untuk berbagai tema pelatihan dan seminar.",
     },
     {
-      question: "Event Pora melayani area mana saja?",
+      question: "Area mana saja yang dilayani oleh EduEvent Pro?",
       answer:
-        "Kami berbasis di Jawa Barat, namun Event Pora siap mengorganisir acara di seluruh Indonesia dengan penyesuaian transportasi dan akomodasi.",
+        "EduEvent Pro melayani institusi pendidikan di seluruh Indonesia dengan sistem koordinasi yang terintegrasi secara profesional.",
     },
   ];
   
@@ -40,7 +40,7 @@ export default function Fact() {
   return (
     <section className="container my-5">
       <h2 className="text-center fw-bold text-primary-custom mb-4">
-        Mengapa Memilih Event Pora?
+        Mengapa Memilih EduEvent Pro?
         <br />
         Ini Jawabannya!
       </h2>

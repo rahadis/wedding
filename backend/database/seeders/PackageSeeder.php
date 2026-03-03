@@ -3,163 +3,119 @@
 namespace Database\Seeders;
 
 use App\Models\Package;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PackageSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //Wedding
+        // 1. MPLS
+
         Package::create([
-            'name' => 'Paket Wedding Modern Glam',
-            'description' => 'Venue indoor + Dekorasi glamor + Dokumentasi full day',
-            'image' => 'wedding_glam.jpg',
-            'price' => 12000000,
-            'categories_id' => 1,
-        ]);
-        Package::create([
-            'name' => 'Paket Wedding Rustic',
-            'description' => 'Venue outdoor + Dekorasi kayu + Dokumentasi half day',
-            'image' => 'wedding_rustic.jpg',
-            'price' => 10000000,
-            'categories_id' => 1,
-        ]);
-        Package::create([
-            'name' => 'Paket Wedding Classic',
-            'description' => 'Venue ballroom + Dekorasi klasik + Dokumentasi full day',
-            'image' => 'wedding_classic.jpg',
-            'price' => 13000000,
-            'categories_id' => 1,
-        ]);
-        Package::create([
-            'name' => 'Paket Wedding Outdoor Elegan',
-            'description' => 'Taman outdoor + Dekorasi elegan + Dokumentasi drone',
-            'image' => 'wedding_outdoor_elegan.jpg',
-            'price' => 14000000,
+            'name' => 'MPLS Gold',
+            'description' => 'Pemateri profesional + Fasilitator + Konsep & Rundown Acara + Tim Dokumentasi + Konsumsi (4 Jam)',
+            'image' => 'mpls_gold.jpg',
+            'price' => 1000000,
             'categories_id' => 1,
         ]);
 
-        //Birthday
         Package::create([
-            'name' => 'Paket Ulang Tahun Aesthetic',
-            'description' => 'Dekorasi ala Pinterest + Neon Sign',
-            'image' => 'birthday_aesthetic.jpeg',
-            'price' => 3000000,
+            'name' => 'MPLS Silver',
+            'description' => 'Pemateri + Fasilitator + Tim Dokumentasi (4 Jam)',
+            'image' => 'mpls_silver.jpg',
+            'price' => 700000,
+            'categories_id' => 1,
+        ]);
+
+        Package::create([
+            'name' => 'MPLS Classic',
+            'description' => 'Fasilitator + Tim Dokumentasi (4 Jam)',
+            'image' => 'mpls_classic.jpg',
+            'price' => 500000,
+            'categories_id' => 1,
+        ]);
+
+
+        // 2. LDKMS
+
+        Package::create([
+            'name' => 'LDKMS Advance Leader',
+            'description' => '3 Hari 2 Malam - Kepemimpinan Visioner, Manajemen Organisasi, Public Speaking, Leadership Camp',
+            'image' => 'ldkms_advance.jpg',
+            'price' => 1500000,
             'categories_id' => 2,
         ]);
+
         Package::create([
-            'name' => 'Paket Ulang Tahun Tema Kartun',
-            'description' => 'Dekorasi karakter + Balon warna-warni',
-            'image' => 'birthday_cartoon.jpg',
-            'price' => 2500000,
+            'name' => 'LDKMS Intermediate Leader',
+            'description' => '2 Hari 1 Malam - Kepemimpinan, Manajemen Organisasi Sekolah, Public Speaking, Leadership Games',
+            'image' => 'ldkms_intermediate.jpg',
+            'price' => 1000000,
             'categories_id' => 2,
         ]);
+
         Package::create([
-            'name' => 'Paket Ulang Tahun Minimalis',
-            'description' => 'Dekorasi sederhana + Kue custom',
-            'image' => 'birthday_minimalist.jpg',
+            'name' => 'LDKMS Basic Leader',
+            'description' => '1 Hari - Dasar Kepemimpinan, Organisasi OSIS/MPK, Etika Siswa, Public Speaking Dasar',
+            'image' => 'ldkms_basic.jpg',
+            'price' => 700000,
+            'categories_id' => 2,
+        ]);
+
+
+        // 3. Bimbel SNBT
+
+        Package::create([
+            'name' => 'Bimbel SNBT Intensif',
+            'description' => 'TPS, Literasi BI & Inggris, Penalaran Matematika, Try Out Berkala, Pembahasan Soal Intensif',
+            'image' => 'snbt_intensif.jpg',
+            'price' => 1200000,
+            'categories_id' => 3,
+        ]);
+
+        Package::create([
+            'name' => 'Bimbel SNBT Reguler',
+            'description' => 'Materi SNBT lengkap + Modul Digital + Simulasi Try Out + Progress Report',
+            'image' => 'snbt_reguler.jpg',
+            'price' => 800000,
+            'categories_id' => 3,
+        ]);
+
+
+        // 4. Seminar
+
+        Package::create([
+            'name' => 'Seminar Motivasi Akademik',
+            'description' => 'Motivasi Akademik + Personal Branding + Public Speaking + Sertifikat',
+            'image' => 'seminar_motivasi.jpg',
+            'price' => 1500000,
+            'categories_id' => 4,
+        ]);
+
+        Package::create([
+            'name' => 'Seminar Kepemimpinan Pelajar',
+            'description' => 'Kepemimpinan Pelajar + Pendidikan Karakter + Moderator + Dokumentasi',
+            'image' => 'seminar_leadership.jpg',
+            'price' => 1300000,
+            'categories_id' => 4,
+        ]);
+
+
+        // 5. Outbond
+
+        Package::create([
+            'name' => 'Outbond Leadership Camp',
+            'description' => 'Team Building Challenge + Leadership Simulation + Character Strengthening',
+            'image' => 'outbond_leadership.jpg',
             'price' => 2000000,
-            'categories_id' => 2,
-        ]);
-        Package::create([
-            'name' => 'Paket Ulang Tahun Outdoor',
-            'description' => 'Lokasi taman + Permainan anak + Snack box',
-            'image' => 'birthday_outdoor.jpg',
-            'price' => 3500000,
-            'categories_id' => 2,
-        ]);
-
-        //Concert
-        Package::create([
-            'name' => 'Paket Konser Musik Full Package',
-            'description' => 'Stage + Sound system + Lighting + MC',
-            'image' => 'concert_full.jpg',
-            'price' => 15000000,
-            'categories_id' => 3,
-        ]);
-        Package::create([
-            'name' => 'Paket Event Outdoor',
-            'description' => 'Tenda besar + Sound system + Panggung minimalis',
-            'image' => 'event_outdoor.jpg',
-            'price' => 9000000,
-            'categories_id' => 3,
-        ]);
-        Package::create([
-            'name' => 'Paket Pertunjukan Seni',
-            'description' => 'Dekorasi tema + Sound system + Lighting artistik',
-            'image' => 'arts_performance.jpg',
-            'price' => 12000000,
-            'categories_id' => 3,
-        ]);
-        Package::create([
-            'name' => 'Paket Hiburan Mini',
-            'description' => 'MC + Musik live akustik + Dekorasi sederhana',
-            'image' => 'mini_entertainment.jpg',
-            'price' => 7000000,
-            'categories_id' => 3,
-        ]);
-
-        //Graduation
-        Package::create([
-            'name' => 'Paket Graduation Garden Party',
-            'description' => 'Outdoor setup + Foto Booth + Snack Table',
-            'image' => 'graduation_garden.jpeg',
-            'price' => 5500000,
-            'categories_id' => 4,
-        ]);
-        Package::create([
-            'name' => 'Paket Graduation Indoor',
-            'description' => 'Dekorasi aula + Musik live + Catering',
-            'image' => 'graduation_indoor.jpg',
-            'price' => 6000000,
-            'categories_id' => 4,
-        ]);
-        Package::create([
-            'name' => 'Paket Graduation Simple',
-            'description' => 'Dekorasi minimalis + Kue ulang tahun',
-            'image' => 'graduation_simple.jpg',
-            'price' => 4000000,
-            'categories_id' => 4,
-        ]);
-        Package::create([
-            'name' => 'Paket Graduation Themed Party',
-            'description' => 'Tema vintage + Live band + Photobooth',
-            'image' => 'graduation_themed.jpg',
-            'price' => 7000000,
-            'categories_id' => 4,
-        ]);
-
-        //Engagement
-        Package::create([
-            'name' => 'Paket Engagement Bohemian',
-            'description' => 'Tema rustic + Lampu gantung + Standing Flowers',
-            'image' => 'engagement_boho.jpeg',
-            'price' => 6000000,
             'categories_id' => 5,
         ]);
+
         Package::create([
-            'name' => 'Paket Engagement Classic',
-            'description' => 'Dekorasi elegan + Musik akustik',
-            'image' => 'engagement_classic.jpeg',
-            'price' => 6500000,
-            'categories_id' => 5,
-        ]);
-        Package::create([
-            'name' => 'Paket Engagement Modern',
-            'description' => 'Dekorasi minimalis + Foto profesional',
-            'image' => 'engagement_modern.jpg',
-            'price' => 5500000,
-            'categories_id' => 5,
-        ]);
-        Package::create([
-            'name' => 'Paket Engagement Garden',
-            'description' => 'Tema taman + Lampu fairy + Catering kecil',
-            'image' => 'engagement_garden.jpg',
-            'price' => 7000000,
+            'name' => 'Outbond Team Building',
+            'description' => 'Problem Solving Games + Communication Training + Fasilitator Profesional',
+            'image' => 'outbond_teambuilding.jpg',
+            'price' => 1500000,
             'categories_id' => 5,
         ]);
     }

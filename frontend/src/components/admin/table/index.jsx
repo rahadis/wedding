@@ -1,4 +1,4 @@
-import { BsFilter } from "react-icons/bs";
+import { BsFilter, BsArrowDownUp } from "react-icons/bs";
 
 export default function TableCard({
   title,
@@ -10,25 +10,24 @@ export default function TableCard({
 }) {
   return (
     <div
-      className="bg-white rounded-4 shadow-sm p-4"
-      style={{ marginTop: "25px" }}
+      className="bg-white rounded-4 shadow-sm p-4 border-0"
     >
-      <div className="d-flex justify-content-between align-items-center mb-4">
+      <div className="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
         <h5 className="fw-bold text-primary m-0">{title}</h5>
         {onSortChange && (
           <div className="dropdown">
             <button
-              className="btn btn-outline-primary btn-sm dropdown-toggle"
+              className="btn btn-light btn-sm dropdown-toggle d-flex align-items-center gap-2 border"
               type="button"
               id="filterDropdown"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <BsFilter size={18} />
+              <BsArrowDownUp size={14} />
               Urutkan
             </button>
             <ul
-              className="dropdown-menu dropdown-menu-end"
+              className="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3 mt-2"
               aria-labelledby="filterDropdown"
             >
               <li>
@@ -57,13 +56,15 @@ export default function TableCard({
       </div>
 
       <div className="table-responsive">
-        <table className="table table-hover align-middle">
-          <thead className="table-light">
+        <table className="table table-hover align-middle mb-0">
+          <thead>
             <tr>
               {columns.map((col) => (
-                <th key={col.dataIndex}>{col.title}</th>
+                <th key={col.dataIndex} className="text-muted fw-semibold small text-uppercase py-3">
+                  {col.title}
+                </th>
               ))}
-              <th>Aksi</th>
+              <th className="text-muted fw-semibold small text-uppercase py-3">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -71,19 +72,19 @@ export default function TableCard({
               data.map((row) => (
                 <tr key={row.id}>
                   {columns.map((col, index) => (
-                    <td key={`${row.id}-${col.dataIndex}-${index}`}>
+                    <td key={`${row.id}-${col.dataIndex}-${index}`} className="py-3">
                       {col.render
                         ? col.render(row[col.dataIndex], row)
                         : row[col.dataIndex]}
                     </td>
                   ))}
-                  <td>{renderAction && renderAction(row)}</td>
+                  <td className="py-3 text-end">{renderAction && renderAction(row)}</td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan={columns.length + 1} className="text-center">
-                  Tidak ada data
+                <td colSpan={columns.length + 1} className="text-center py-5 text-muted">
+                  Belum ada data tersedia
                 </td>
               </tr>
             )}

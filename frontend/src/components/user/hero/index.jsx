@@ -16,7 +16,7 @@ export default function Hero() {
       >
         <div className="hero-content w-100 px-0">
           <h1 className="hero-title fw-bold mb-4">
-            MAKE YOU’RE BEAUTIFUL MOMENT WITH <br /> EVENT PORA
+            EMPOWER YOUR EDUCATIONAL JOURNEY WITH <br /> EDUEVENT PRO
           </h1>
           <hr className="hero-divider" />
         </div>

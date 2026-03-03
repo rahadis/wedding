@@ -2,7 +2,7 @@
 .hero-container {
   height: 65vh;
   width: 100vw;
-  background-image: url('/BgFlower.png');
+  background-color: #0a2357;
   background-size: cover;
   background-position: center;
   font-family: 'Poppins', sans-serif;
@@ -52,5 +52,5 @@
 }
 
 .stats-col h2 {
-  color: #014AB0 !important;
+  color: #0a2357 !important;
 }

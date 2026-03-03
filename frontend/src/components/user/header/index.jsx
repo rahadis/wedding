@@ -18,18 +18,31 @@ export default function Header() {
   return (
     <header className="navbar navbar-expand-lg bg-white fixed-top border-bottom shadow-sm">
       <div className="container-fluid px-4">
+        {/* Toggler button for mobile */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
         {/* Logo */}
         <Link
           to="/"
           className="navbar-brand d-flex align-items-center fw-bold"
-          style={{ color: "#014AB0" }}
+          style={{ color: "#0a2357" }}
         >
           <img
             src="/logo.png"
             alt="Logo"
             style={{ height: "60px", marginRight: "6px" }}
           />
-          Event Pora
+          EduEvent Pro
         </Link>
 
         {/* Navbar content */}
@@ -67,7 +80,7 @@ export default function Header() {
               to="/dashboard"
               className="btn"
               style={{
-                backgroundColor: "#014AB0",
+                backgroundColor: "#0a2357",
                 color: "#fff",
                 marginRight: "10px",
                 marginLeft: "10px",
@@ -89,7 +102,7 @@ export default function Header() {
               to="/login"
               className="btn"
               style={{
-                backgroundColor: "#014AB0",
+                backgroundColor: "#0a2357",
                 color: "#fff",
                 marginRight: "10px",
                 marginLeft: "10px",
@@ -101,8 +114,8 @@ export default function Header() {
               to="/register"
               className="btn me-2"
               style={{
-                border: "2px solid #014AB0",
-                color: "#014AB0",
+                border: "2px solid #0a2357",
+                color: "#0a2357",
                 backgroundColor: "transparent",
               }}
             >
