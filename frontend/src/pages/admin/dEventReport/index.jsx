@@ -5,6 +5,7 @@ import Topbar from "../../../components/admin/topbar";
 import TableCard from "../../../components/admin/table";
 import { getEventReports, deleteEventReport } from "../../../_services/eventReport";
 import { useNavigate } from "react-router-dom";
+import { storageUrl } from "../../../_api";
 
 export default function DEventReport() {
   const [reports, setReports] = useState([]);
@@ -22,7 +23,7 @@ export default function DEventReport() {
       render: (doc) =>
         doc ? (
           <img
-            src={`http://localhost:8000/storage/${doc}`}
+            src={`${storageUrl}/${doc}`}
             alt="Dokumentasi"
             style={{ width: "80px" }}
           />
@@ -127,7 +128,7 @@ export default function DEventReport() {
                     <p><strong>Dokumentasi:</strong></p>
                     {selectedReport.documentation ? (
                       <img
-                        src={`http://localhost:8000/storage/${selectedReport.documentation}`}
+                        src={`${storageUrl}/${selectedReport.documentation}`}
                         alt="Dokumentasi"
                         style={{ maxWidth: "100%", borderRadius: "8px" }}
                       />

@@ -13,153 +13,103 @@ class PackageSeeder extends Seeder
      */
     public function run(): void
     {
-        //Wedding
+        // MPLS (ID: 1)
         Package::create([
-            'name' => 'Paket Wedding Modern Glam',
-            'description' => 'Venue indoor + Dekorasi glamor + Dokumentasi full day',
-            'image' => 'wedding_glam.jpg',
-            'price' => 12000000,
+            'name' => 'MPLS Fun & Interactive',
+            'description' => 'Paket pengenalan sekolah dengan outbound, ice breaking, dan seminar motivasi.',
+            'image' => 'mpls_fun.jpg',
+            'price' => 5000000,
+            'duration' => '3 Hari',
+            'target_audience' => 'Siswa Baru (SMP/SMA)',
             'categories_id' => 1,
         ]);
         Package::create([
-            'name' => 'Paket Wedding Rustic',
-            'description' => 'Venue outdoor + Dekorasi kayu + Dokumentasi half day',
-            'image' => 'wedding_rustic.jpg',
+            'name' => 'MPLS Leadership Focus',
+            'description' => 'Paket pengenalan sekolah yang menekankan pada kepemimpinan dan kemandirian.',
+            'image' => 'mpls_leadership.jpg',
+            'price' => 7000000,
+            'duration' => '3 Hari',
+            'target_audience' => 'Siswa Baru (SMA/SMK)',
+            'categories_id' => 1,
+        ]);
+
+        // LDKMS (ID: 2)
+        Package::create([
+            'name' => 'LDKMS Latihan Dasar Kepemimpinan',
+            'description' => 'Pelatihan kepemimpinan dasar di lingkungan sekolah/kampus.',
+            'image' => 'ldkms_basic.jpg',
+            'price' => 8000000,
+            'duration' => '2 Hari 1 Malam',
+            'target_audience' => 'Pengurus OSIS/BEM',
+            'categories_id' => 2,
+        ]);
+        Package::create([
+            'name' => 'LDKMS Advance Leadership',
+            'description' => 'Pelatihan kepemimpinan tingkat lanjut dengan simulasi manajemen konflik.',
+            'image' => 'ldkms_advance.jpg',
             'price' => 10000000,
-            'categories_id' => 1,
-        ]);
-        Package::create([
-            'name' => 'Paket Wedding Classic',
-            'description' => 'Venue ballroom + Dekorasi klasik + Dokumentasi full day',
-            'image' => 'wedding_classic.jpg',
-            'price' => 13000000,
-            'categories_id' => 1,
-        ]);
-        Package::create([
-            'name' => 'Paket Wedding Outdoor Elegan',
-            'description' => 'Taman outdoor + Dekorasi elegan + Dokumentasi drone',
-            'image' => 'wedding_outdoor_elegan.jpg',
-            'price' => 14000000,
-            'categories_id' => 1,
-        ]);
-
-        //Birthday
-        Package::create([
-            'name' => 'Paket Ulang Tahun Aesthetic',
-            'description' => 'Dekorasi ala Pinterest + Neon Sign',
-            'image' => 'birthday_aesthetic.jpeg',
-            'price' => 3000000,
-            'categories_id' => 2,
-        ]);
-        Package::create([
-            'name' => 'Paket Ulang Tahun Tema Kartun',
-            'description' => 'Dekorasi karakter + Balon warna-warni',
-            'image' => 'birthday_cartoon.jpg',
-            'price' => 2500000,
-            'categories_id' => 2,
-        ]);
-        Package::create([
-            'name' => 'Paket Ulang Tahun Minimalis',
-            'description' => 'Dekorasi sederhana + Kue custom',
-            'image' => 'birthday_minimalist.jpg',
-            'price' => 2000000,
-            'categories_id' => 2,
-        ]);
-        Package::create([
-            'name' => 'Paket Ulang Tahun Outdoor',
-            'description' => 'Lokasi taman + Permainan anak + Snack box',
-            'image' => 'birthday_outdoor.jpg',
-            'price' => 3500000,
+            'duration' => '3 Hari 2 Malam',
+            'target_audience' => 'Pengurus Inti Organisasi',
             'categories_id' => 2,
         ]);
 
-        //Concert
+        // Wisuda & Pelepasan (ID: 3)
         Package::create([
-            'name' => 'Paket Konser Musik Full Package',
-            'description' => 'Stage + Sound system + Lighting + MC',
-            'image' => 'concert_full.jpg',
+            'name' => 'Wisuda Elegan & Formal',
+            'description' => 'Dekorasi panggung formal, sound system premium, dan dokumentasi lengkap.',
+            'image' => 'wisuda_elegant.jpg',
             'price' => 15000000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Siswa/Mahasiswa Lulusan',
             'categories_id' => 3,
         ]);
         Package::create([
-            'name' => 'Paket Event Outdoor',
-            'description' => 'Tenda besar + Sound system + Panggung minimalis',
-            'image' => 'event_outdoor.jpg',
-            'price' => 9000000,
-            'categories_id' => 3,
-        ]);
-        Package::create([
-            'name' => 'Paket Pertunjukan Seni',
-            'description' => 'Dekorasi tema + Sound system + Lighting artistik',
-            'image' => 'arts_performance.jpg',
+            'name' => 'Pesta Perpisahan Outdoor',
+            'description' => 'Acara pelepasan santai dengan tema garden party dan live music.',
+            'image' => 'perpisahan_outdoor.jpg',
             'price' => 12000000,
-            'categories_id' => 3,
-        ]);
-        Package::create([
-            'name' => 'Paket Hiburan Mini',
-            'description' => 'MC + Musik live akustik + Dekorasi sederhana',
-            'image' => 'mini_entertainment.jpg',
-            'price' => 7000000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Siswa/Mahasiswa Lulusan',
             'categories_id' => 3,
         ]);
 
-        //Graduation
+        // Seminar & Workshop Akademik (ID: 4)
         Package::create([
-            'name' => 'Paket Graduation Garden Party',
-            'description' => 'Outdoor setup + Foto Booth + Snack Table',
-            'image' => 'graduation_garden.jpeg',
-            'price' => 5500000,
-            'categories_id' => 4,
-        ]);
-        Package::create([
-            'name' => 'Paket Graduation Indoor',
-            'description' => 'Dekorasi aula + Musik live + Catering',
-            'image' => 'graduation_indoor.jpg',
+            'name' => 'Seminar Pendidikan Nasional',
+            'description' => 'Seminar dengan pembicara ahli pendidikan, fasilitas sertifikat, dan lunch box.',
+            'image' => 'seminar_pendidikan.jpg',
             'price' => 6000000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Guru, Dosen, & Mahasiswa',
             'categories_id' => 4,
         ]);
         Package::create([
-            'name' => 'Paket Graduation Simple',
-            'description' => 'Dekorasi minimalis + Kue ulang tahun',
-            'image' => 'graduation_simple.jpg',
-            'price' => 4000000,
-            'categories_id' => 4,
-        ]);
-        Package::create([
-            'name' => 'Paket Graduation Themed Party',
-            'description' => 'Tema vintage + Live band + Photobooth',
-            'image' => 'graduation_themed.jpg',
-            'price' => 7000000,
+            'name' => 'Workshop IT & Coding',
+            'description' => 'Pelatihan praktis pemrograman dengan instruktur berpengalaman.',
+            'image' => 'workshop_it.jpg',
+            'price' => 9000000,
+            'duration' => '2 Hari',
+            'target_audience' => 'Siswa/Mahasiswa IT',
             'categories_id' => 4,
         ]);
 
-        //Engagement
+        // Kompetisi Pendidikan (ID: 5)
         Package::create([
-            'name' => 'Paket Engagement Bohemian',
-            'description' => 'Tema rustic + Lampu gantung + Standing Flowers',
-            'image' => 'engagement_boho.jpeg',
-            'price' => 6000000,
+            'name' => 'Olimpiade Sains & Matematika',
+            'description' => 'Penyelenggaraan lomba akademik dengan sistem penilaian digital.',
+            'image' => 'olimpiade_sains.jpg',
+            'price' => 10000000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Siswa SD/SMP/SMA',
             'categories_id' => 5,
         ]);
         Package::create([
-            'name' => 'Paket Engagement Classic',
-            'description' => 'Dekorasi elegan + Musik akustik',
-            'image' => 'engagement_classic.jpeg',
-            'price' => 6500000,
-            'categories_id' => 5,
-        ]);
-        Package::create([
-            'name' => 'Paket Engagement Modern',
-            'description' => 'Dekorasi minimalis + Foto profesional',
-            'image' => 'engagement_modern.jpg',
-            'price' => 5500000,
-            'categories_id' => 5,
-        ]);
-        Package::create([
-            'name' => 'Paket Engagement Garden',
-            'description' => 'Tema taman + Lampu fairy + Catering kecil',
-            'image' => 'engagement_garden.jpg',
-            'price' => 7000000,
+            'name' => 'Lomba Karya Ilmiah Remaja',
+            'description' => 'Kompetisi presentasi penelitian dan inovasi teknologi.',
+            'image' => 'kir.jpg',
+            'price' => 8500000,
+            'duration' => '2 Hari',
+            'target_audience' => 'Siswa SMA/Mahasiswa',
             'categories_id' => 5,
         ]);
     }

@@ -14,28 +14,28 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'category_name' => 'Wedding',
-            'description' => 'Paket pernikahan dengan berbagai tema seperti glamor, rustic, dan outdoor elegan.'
+            'category_name' => 'MPLS',
+            'description' => 'Paket Masa Pengenalan Lingkungan Sekolah untuk siswa baru dengan berbagai kegiatan menarik.'
         ]);
 
         Category::create([
-            'category_name' => 'Birthday',
-            'description' => 'Paket ulang tahun dengan tema aesthetic, kartun, minimalis, dan outdoor party.'
+            'category_name' => 'LDKMS',
+            'description' => 'Paket Latihan Dasar Kepemimpinan Mahasiswa/Siswa untuk pengembangan karakter dan organisasi.'
         ]);
 
         Category::create([
-            'category_name' => 'Concert & Entertainment',
-            'description' => 'Paket acara hiburan seperti konser musik, pertunjukan, dan event outdoor seru.'
+            'category_name' => 'Wisuda & Pelepasan',
+            'description' => 'Paket acara wisuda dan pelepasan siswa/mahasiswa dengan dekorasi formal dan berkesan.'
         ]);
 
         Category::create([
-            'category_name' => 'Graduation Party',
-            'description' => 'Paket pesta kelulusan dengan dekorasi indoor, outdoor, dan tema kekinian.'
+            'category_name' => 'Seminar & Workshop Akademik',
+            'description' => 'Paket seminar dan workshop akademik dengan fasilitas lengkap untuk menunjang pembelajaran.'
         ]);
 
         Category::create([
-            'category_name' => 'Engagement',
-            'description' => 'Paket acara lamaran dengan tema rustic, bohemian, klasik, dan garden party.'
+            'category_name' => 'Kompetisi Pendidikan',
+            'description' => 'Paket penyelenggaraan kompetisi pendidikan seperti Olimpiade, LKS, dan lomba akademik lainnya.'
         ]);
     }
 }

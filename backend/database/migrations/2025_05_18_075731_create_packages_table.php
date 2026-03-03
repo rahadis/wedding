@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->integer('price');
+            $table->string('duration')->nullable();
+            $table->string('target_audience')->nullable();
             $table->foreignId('categories_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
