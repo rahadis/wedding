@@ -3,119 +3,113 @@
 namespace Database\Seeders;
 
 use App\Models\Package;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PackageSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-        // 1. MPLS
-
+        // MPLS (ID: 1)
         Package::create([
-            'name' => 'MPLS Gold',
-            'description' => 'Pemateri profesional + Fasilitator + Konsep & Rundown Acara + Tim Dokumentasi + Konsumsi (4 Jam)',
-            'image' => 'mpls_gold.jpg',
-            'price' => 1000000,
+            'name' => 'MPLS Fun & Interactive',
+            'description' => 'Paket pengenalan sekolah dengan outbound, ice breaking, dan seminar motivasi.',
+            'image' => 'mpls_fun.jpg',
+            'price' => 5000000,
+            'duration' => '3 Hari',
+            'target_audience' => 'Siswa Baru (SMP/SMA)',
+            'categories_id' => 1,
+        ]);
+        Package::create([
+            'name' => 'MPLS Leadership Focus',
+            'description' => 'Paket pengenalan sekolah yang menekankan pada kepemimpinan dan kemandirian.',
+            'image' => 'mpls_leadership.jpg',
+            'price' => 7000000,
+            'duration' => '3 Hari',
+            'target_audience' => 'Siswa Baru (SMA/SMK)',
             'categories_id' => 1,
         ]);
 
+        // LDKMS (ID: 2)
         Package::create([
-            'name' => 'MPLS Silver',
-            'description' => 'Pemateri + Fasilitator + Tim Dokumentasi (4 Jam)',
-            'image' => 'mpls_silver.jpg',
-            'price' => 700000,
-            'categories_id' => 1,
-        ]);
-
-        Package::create([
-            'name' => 'MPLS Classic',
-            'description' => 'Fasilitator + Tim Dokumentasi (4 Jam)',
-            'image' => 'mpls_classic.jpg',
-            'price' => 500000,
-            'categories_id' => 1,
-        ]);
-
-
-        // 2. LDKMS
-
-        Package::create([
-            'name' => 'LDKMS Advance Leader',
-            'description' => '3 Hari 2 Malam - Kepemimpinan Visioner, Manajemen Organisasi, Public Speaking, Leadership Camp',
-            'image' => 'ldkms_advance.jpg',
-            'price' => 1500000,
-            'categories_id' => 2,
-        ]);
-
-        Package::create([
-            'name' => 'LDKMS Intermediate Leader',
-            'description' => '2 Hari 1 Malam - Kepemimpinan, Manajemen Organisasi Sekolah, Public Speaking, Leadership Games',
-            'image' => 'ldkms_intermediate.jpg',
-            'price' => 1000000,
-            'categories_id' => 2,
-        ]);
-
-        Package::create([
-            'name' => 'LDKMS Basic Leader',
-            'description' => '1 Hari - Dasar Kepemimpinan, Organisasi OSIS/MPK, Etika Siswa, Public Speaking Dasar',
+            'name' => 'LDKMS Latihan Dasar Kepemimpinan',
+            'description' => 'Pelatihan kepemimpinan dasar di lingkungan sekolah/kampus.',
             'image' => 'ldkms_basic.jpg',
-            'price' => 700000,
+            'price' => 8000000,
+            'duration' => '2 Hari 1 Malam',
+            'target_audience' => 'Pengurus OSIS/BEM',
+            'categories_id' => 2,
+        ]);
+        Package::create([
+            'name' => 'LDKMS Advance Leadership',
+            'description' => 'Pelatihan kepemimpinan tingkat lanjut dengan simulasi manajemen konflik.',
+            'image' => 'ldkms_advance.jpg',
+            'price' => 10000000,
+            'duration' => '3 Hari 2 Malam',
+            'target_audience' => 'Pengurus Inti Organisasi',
             'categories_id' => 2,
         ]);
 
-
-        // 3. Bimbel SNBT
-
+        // Wisuda & Pelepasan (ID: 3)
         Package::create([
-            'name' => 'Bimbel SNBT Intensif',
-            'description' => 'TPS, Literasi BI & Inggris, Penalaran Matematika, Try Out Berkala, Pembahasan Soal Intensif',
-            'image' => 'snbt_intensif.jpg',
-            'price' => 1200000,
+            'name' => 'Wisuda Elegan & Formal',
+            'description' => 'Dekorasi panggung formal, sound system premium, dan dokumentasi lengkap.',
+            'image' => 'wisuda_elegant.jpg',
+            'price' => 15000000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Siswa/Mahasiswa Lulusan',
+            'categories_id' => 3,
+        ]);
+        Package::create([
+            'name' => 'Pesta Perpisahan Outdoor',
+            'description' => 'Acara pelepasan santai dengan tema garden party dan live music.',
+            'image' => 'perpisahan_outdoor.jpg',
+            'price' => 12000000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Siswa/Mahasiswa Lulusan',
             'categories_id' => 3,
         ]);
 
+        // Seminar & Workshop Akademik (ID: 4)
         Package::create([
-            'name' => 'Bimbel SNBT Reguler',
-            'description' => 'Materi SNBT lengkap + Modul Digital + Simulasi Try Out + Progress Report',
-            'image' => 'snbt_reguler.jpg',
-            'price' => 800000,
-            'categories_id' => 3,
+            'name' => 'Seminar Pendidikan Nasional',
+            'description' => 'Seminar dengan pembicara ahli pendidikan, fasilitas sertifikat, dan lunch box.',
+            'image' => 'seminar_pendidikan.jpg',
+            'price' => 6000000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Guru, Dosen, & Mahasiswa',
+            'categories_id' => 4,
         ]);
-
-
-        // 4. Seminar
-
         Package::create([
-            'name' => 'Seminar Motivasi Akademik',
-            'description' => 'Motivasi Akademik + Personal Branding + Public Speaking + Sertifikat',
-            'image' => 'seminar_motivasi.jpg',
-            'price' => 1500000,
+            'name' => 'Workshop IT & Coding',
+            'description' => 'Pelatihan praktis pemrograman dengan instruktur berpengalaman.',
+            'image' => 'workshop_it.jpg',
+            'price' => 9000000,
+            'duration' => '2 Hari',
+            'target_audience' => 'Siswa/Mahasiswa IT',
             'categories_id' => 4,
         ]);
 
+        // Kompetisi Pendidikan (ID: 5)
         Package::create([
-            'name' => 'Seminar Kepemimpinan Pelajar',
-            'description' => 'Kepemimpinan Pelajar + Pendidikan Karakter + Moderator + Dokumentasi',
-            'image' => 'seminar_leadership.jpg',
-            'price' => 1300000,
-            'categories_id' => 4,
-        ]);
-
-
-        // 5. Outbond
-
-        Package::create([
-            'name' => 'Outbond Leadership Camp',
-            'description' => 'Team Building Challenge + Leadership Simulation + Character Strengthening',
-            'image' => 'outbond_leadership.jpg',
-            'price' => 2000000,
+            'name' => 'Olimpiade Sains & Matematika',
+            'description' => 'Penyelenggaraan lomba akademik dengan sistem penilaian digital.',
+            'image' => 'olimpiade_sains.jpg',
+            'price' => 10000000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Siswa SD/SMP/SMA',
             'categories_id' => 5,
         ]);
-
         Package::create([
-            'name' => 'Outbond Team Building',
-            'description' => 'Problem Solving Games + Communication Training + Fasilitator Profesional',
-            'image' => 'outbond_teambuilding.jpg',
-            'price' => 1500000,
+            'name' => 'Lomba Karya Ilmiah Remaja',
+            'description' => 'Kompetisi presentasi penelitian dan inovasi teknologi.',
+            'image' => 'kir.jpg',
+            'price' => 8500000,
+            'duration' => '2 Hari',
+            'target_audience' => 'Siswa SMA/Mahasiswa',
             'categories_id' => 5,
         ]);
     }

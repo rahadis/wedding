@@ -3,35 +3,39 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
         Category::create([
             'category_name' => 'MPLS',
-            'description' => 'Program Masa Pengenalan Lingkungan Sekolah untuk siswa SMP/MTs dan SMA/SMK/MA dengan berbagai pilihan paket kegiatan.'
+            'description' => 'Paket Masa Pengenalan Lingkungan Sekolah untuk siswa baru dengan berbagai kegiatan menarik.'
         ]);
 
         Category::create([
             'category_name' => 'LDKMS',
-            'description' => 'Latihan Dasar Kepemimpinan Manajemen Siswa dengan materi kepemimpinan, manajemen organisasi, dan character building.'
+            'description' => 'Paket Latihan Dasar Kepemimpinan Mahasiswa/Siswa untuk pengembangan karakter dan organisasi.'
         ]);
 
         Category::create([
-            'category_name' => 'Bimbel SNBT',
-            'description' => 'Program bimbingan belajar persiapan SNBT meliputi TPS, literasi, penalaran matematika, dan try out berkala.'
+            'category_name' => 'Wisuda & Pelepasan',
+            'description' => 'Paket acara wisuda dan pelepasan siswa/mahasiswa dengan dekorasi formal dan berkesan.'
         ]);
 
         Category::create([
-            'category_name' => 'Seminar',
-            'description' => 'Seminar pendidikan meliputi motivasi akademik, personal branding, public speaking, dan kepemimpinan pelajar.'
+            'category_name' => 'Seminar & Workshop Akademik',
+            'description' => 'Paket seminar dan workshop akademik dengan fasilitas lengkap untuk menunjang pembelajaran.'
         ]);
 
         Category::create([
-            'category_name' => 'Outbond',
-            'description' => 'Kegiatan outdoor berbasis team building, leadership simulation, problem solving, dan penguatan karakter.'
+            'category_name' => 'Kompetisi Pendidikan',
+            'description' => 'Paket penyelenggaraan kompetisi pendidikan seperti Olimpiade, LKS, dan lomba akademik lainnya.'
         ]);
     }
 }
