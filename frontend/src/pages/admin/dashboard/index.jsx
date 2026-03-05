@@ -41,6 +41,9 @@ export default function Dashboard() {
     pendingPercentage: "0%",
     eventPercentage: "0%",
     userPercentage: "0%",
+    totalMPLS: 0,
+    totalLDKMS: 0,
+    totalWisuda: 0,
   });
 
   const columns = [
@@ -100,9 +103,27 @@ export default function Dashboard() {
           ((pendingTransaction / totalTransactionThisWeek) * 100).toFixed(1) +
           "%";
 
+        const paidTransactions = transactionData.filter(
+          (trx) => trx.status === "Paid"
+        );
+
+        const mplsCount = paidTransactions.filter((trx) => {
+          const pkg = packageData.find((p) => p.id === trx.packages_id);
+          return pkg && pkg.categories_id === 1;
+        }).length;
+
+        const ldkmsCount = paidTransactions.filter((trx) => {
+          const pkg = packageData.find((p) => p.id === trx.packages_id);
+          return pkg && pkg.categories_id === 2;
+        }).length;
+
+        const wisudaCount = paidTransactions.filter((trx) => {
+          const pkg = packageData.find((p) => p.id === trx.packages_id);
+          return pkg && pkg.categories_id === 3;
+        }).length;
+
         setStatistik({
-          totalEvent: transactionData.filter((trx) => trx.status === "Paid")
-            .length,
+          totalEvent: paidTransactions.length,
           totalPending: transactionData.filter(
             (trx) => trx.status === "Waiting verification"
           ).length,
@@ -114,11 +135,11 @@ export default function Dashboard() {
               (userData.filter((u) => u.role === "user").length / 1000) *
               100
             ).toFixed(1) + "%",
+          totalMPLS: mplsCount,
+          totalLDKMS: ldkmsCount,
+          totalWisuda: wisudaCount,
         });
 
-        const paidTransactions = transactionData.filter(
-          (trx) => trx.status === "Paid"
-        );
         const countMap = {};
         paidTransactions.forEach(({ packages_id }) => {
           countMap[packages_id] = (countMap[packages_id] || 0) + 1;
@@ -175,7 +196,7 @@ export default function Dashboard() {
       <div className="flex-grow-1">
         <Topbar />
         <div className="p-4">
-          <div className="row g-3">
+          <div className="row g-3 mb-3">
             <div className="col-md-4">
               <StatCard
                 icon={<FaCalendarCheck size={24} />}
@@ -198,6 +219,33 @@ export default function Dashboard() {
                 title="Total User"
                 count={statistik.totalUsers}
                 percentage={statistik.userPercentage}
+              />
+            </div>
+          </div>
+
+          <div className="row g-3 mb-3">
+            <div className="col-md-4">
+              <StatCard
+                icon={<FaCalendarCheck size={24} />}
+                title="Total MPLS"
+                count={statistik.totalMPLS}
+                percentage=""
+              />
+            </div>
+            <div className="col-md-4">
+              <StatCard
+                icon={<FaCalendarCheck size={24} />}
+                title="Total LDKMS"
+                count={statistik.totalLDKMS}
+                percentage=""
+              />
+            </div>
+            <div className="col-md-4">
+              <StatCard
+                icon={<FaCalendarCheck size={24} />}
+                title="Total Wisuda"
+                count={statistik.totalWisuda}
+                percentage=""
               />
             </div>
           </div>

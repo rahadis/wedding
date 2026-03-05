@@ -29,6 +29,7 @@ import DPackage from "./pages/admin/dPackage";
 import DTransaksi from "./pages/admin/dTransaksi";
 import DLaporan from "./pages/admin/dLaporan";
 import DEvent from "./pages/admin/event";
+import AdminChatDetail from "./pages/admin/dUser/chatDetail";
 
 // Layout
 import UserLayout from "./layout/user";
@@ -83,6 +84,14 @@ const handleLogout = async () => {
           element={
             <AdminLayout>
               <Dashboard />
+            </AdminLayout>
+          }
+        />
+        <Route
+          path="/admin/users/chat/:userId"
+          element={
+            <AdminLayout>
+              <AdminChatDetail />
             </AdminLayout>
           }
         />

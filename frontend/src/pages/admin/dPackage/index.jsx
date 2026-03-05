@@ -25,6 +25,8 @@ export default function DaftarPackageEvent() {
     { title: "ID", dataIndex: "id" },
     { title: "Nama Package", dataIndex: "name" },
     { title: "Deskripsi", dataIndex: "description" },
+    { title: "Durasi", dataIndex: "duration" },
+    { title: "Target Peserta", dataIndex: "target_audience" },
     { title: "Harga", dataIndex: "price" },
     { title: "Kategori", dataIndex: "category_name" },
     {
