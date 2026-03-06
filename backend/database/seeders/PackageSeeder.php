@@ -15,8 +15,8 @@ class PackageSeeder extends Seeder
     {
         // MPLS (ID: 1)
         Package::create([
-            'name' => 'MPLS Fun & Interactive',
-            'description' => 'Paket pengenalan sekolah dengan outbound, ice breaking, dan seminar motivasi.',
+            'name' => 'MPLS Gold',
+            'description' => 'Paket premium pengenalan sekolah dengan outbound lengkap, ice breaking, seminar motivasi, dan merchandise.',
             'image' => 'mpls_fun.jpg',
             'price' => 5000000,
             'duration' => '3 Hari',
@@ -24,32 +24,41 @@ class PackageSeeder extends Seeder
             'categories_id' => 1,
         ]);
         Package::create([
-            'name' => 'MPLS Leadership Focus',
-            'description' => 'Paket pengenalan sekolah yang menekankan pada kepemimpinan dan kemandirian.',
+            'name' => 'MPLS Silver',
+            'description' => 'Paket menengah pengenalan sekolah dengan outbound, ice breaking, dan seminar motivasi.',
             'image' => 'mpls_leadership.jpg',
-            'price' => 7000000,
+            'price' => 3500000,
             'duration' => '3 Hari',
-            'target_audience' => 'Siswa Baru (SMA/SMK)',
+            'target_audience' => 'Siswa Baru (SMP/SMA)',
+            'categories_id' => 1,
+        ]);
+        Package::create([
+            'name' => 'MPLS Classic',
+            'description' => 'Paket dasar pengenalan sekolah dengan ice breaking dan materi pengenalan dasar.',
+            'image' => 'mpls_classic.jpg',
+            'price' => 2000000,
+            'duration' => '2 Hari',
+            'target_audience' => 'Siswa Baru (SMP/SMA)',
             'categories_id' => 1,
         ]);
 
         // LDKMS (ID: 2)
         Package::create([
-            'name' => 'LDKMS Latihan Dasar Kepemimpinan',
-            'description' => 'Pelatihan kepemimpinan dasar di lingkungan sekolah/kampus.',
+            'name' => 'LDKMS Kepemimpinan',
+            'description' => 'Pelatihan kepemimpinan intensif dengan simulasi manajemen organisasi dan karakter.',
             'image' => 'ldkms_basic.jpg',
-            'price' => 8000000,
+            'price' => 4000000,
             'duration' => '2 Hari 1 Malam',
             'target_audience' => 'Pengurus OSIS/BEM',
             'categories_id' => 2,
         ]);
         Package::create([
-            'name' => 'LDKMS Advance Leadership',
-            'description' => 'Pelatihan kepemimpinan tingkat lanjut dengan simulasi manajemen konflik.',
+            'name' => 'LDKMS Dasar',
+            'description' => 'Pelatihan dasar kepemimpinan dan pengenalan organisasi sekolah.',
             'image' => 'ldkms_advance.jpg',
-            'price' => 10000000,
-            'duration' => '3 Hari 2 Malam',
-            'target_audience' => 'Pengurus Inti Organisasi',
+            'price' => 2500000,
+            'duration' => '1 Hari',
+            'target_audience' => 'Calon Pengurus Organisasi',
             'categories_id' => 2,
         ]);
 

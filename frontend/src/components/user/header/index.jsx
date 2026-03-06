@@ -18,24 +18,11 @@ export default function Header() {
   return (
     <header className="navbar navbar-expand-lg bg-white fixed-top border-bottom shadow-sm">
       <div className="container-fluid px-4">
-        {/* Toggler button for mobile */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-          aria-controls="navbarContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
         {/* Logo */}
         <Link
           to="/"
           className="navbar-brand d-flex align-items-center fw-bold"
-          style={{ color: "#0a2357" }}
+          style={{ color: "#014AB0" }}
         >
           <img
             src="/logo.png"
@@ -71,6 +58,13 @@ export default function Header() {
                 Contact
               </Link>
             </li>
+            {token && (
+              <li className="nav-item">
+                <Link to="/chat" className="nav-link nav-link-custom">
+                  Chat
+                </Link>
+              </li>
+            )}
           </ul>
 
           {/* Register & Login */}
@@ -80,7 +74,7 @@ export default function Header() {
               to="/dashboard"
               className="btn"
               style={{
-                backgroundColor: "#0a2357",
+                backgroundColor: "#014AB0",
                 color: "#fff",
                 marginRight: "10px",
                 marginLeft: "10px",
@@ -102,7 +96,7 @@ export default function Header() {
               to="/login"
               className="btn"
               style={{
-                backgroundColor: "#0a2357",
+                backgroundColor: "#014AB0",
                 color: "#fff",
                 marginRight: "10px",
                 marginLeft: "10px",
@@ -114,8 +108,8 @@ export default function Header() {
               to="/register"
               className="btn me-2"
               style={{
-                border: "2px solid #0a2357",
-                color: "#0a2357",
+                border: "2px solid #014AB0",
+                color: "#014AB0",
                 backgroundColor: "transparent",
               }}
             >

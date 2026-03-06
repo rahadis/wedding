@@ -1,108 +1,126 @@
 import React from "react";
 import "../../../styles/testimony.css";
-import { FaGraduationCap, FaQuoteLeft } from "react-icons/fa";
 
 export default function Testimony() {
   const testimonials = [
     {
-      title: "MPLS Modern",
-      location: "SMAN 1 Bandung",
-      date: "Juli 2024",
-      client: "Wakasek Kesiswaan",
+      title: "MPLS SMA 1 Jakarta",
+      location: "Jakarta",
+      date: "12 Jul 2024",
+      time: "07:00 AM",
+      client: "Panitia MPLS SMA 1",
       testimonial:
-        "Program MPLS tahun ini sangat berbeda dan jauh lebih menarik. Siswa baru terlihat antusias dan materi yang dibawakan EduEvent sangat solutif!",
+        "EduEvent Pro membantu kami menyusun konsep MPLS yang edukatif dan menyenangkan. Sangat membantu!",
       images: [
-        "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://disdik.jabarprov.go.id/upload/Berita/9944062c3e.jpg",
+        "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/13/2023/07/19/IMG-20230718-WA0003-3663172826.jpg",
       ],
     },
     {
-      title: "LDKMS Advance",
-      location: "SMP IT Nurul Fikri",
-      date: "Agustus 2024",
-      client: "Pembina OSIS",
+      title: "LDKMS SMP 2 Bandung",
+      location: "Bandung",
+      date: "23 Sep 2024",
+      time: "08:00 AM",
+      client: "Pembina OSIS SMP 2",
       testimonial:
-        "Simulasi kepemimpinannya sangat menantang dan mendidik. Anak-anak OSIS jadi lebih solid dan punya inisiatif tinggi setelah ikut program ini.",
+        "Pelatihan kepemimpinan berjalan sangat tertib dan disiplin berkat manajemen dari EduEvent Pro.",
       images: [
-        "https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://smpn2madiun.sch.id/wp-content/uploads/2022/10/LDK-OSIS-2022-2.jpg",
+        "https://smpn2madiun.sch.id/wp-content/uploads/2022/10/LDK-OSIS-2022-1.jpg",
       ],
     },
     {
-      title: "Seminar SNBT",
-      location: "SMA Kristen 1 Jakarta",
-      date: "September 2024",
-      client: "Humas Sekolah",
-      testimonial: "Strategi yang dibagikan sangat praktis. Try Out simulasinya juga mirip banget sama sistem asli. Membantu banget buat anak kelas 12.",
+      title: "Seminar Parenting",
+      location: "Tangerang",
+      date: "15 Oct 2024",
+      time: "09:00 AM",
+      client: "Yayasan Pendidikan Mulia",
+      testimonial:
+        "Seminar berjalan sangat lancar. Pengaturan sound system dan tata letak sangat profesional.",
       images: [
-        "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://www.alazhar-yogyakarta.sch.id/wp-content/uploads/2023/10/IMG_8746-1024x683.jpg",
+        "https://www.alazhar-yogyakarta.sch.id/wp-content/uploads/2023/10/IMG_8750-1024x683.jpg",
       ],
     },
     {
-      title: "Outbound Leadership",
-      location: "SMK Telkom Malang",
-      date: "Oktober 2024",
-      client: "Guru Pendamping",
-      testimonial: "Fasilitatornya seru-seru dan alat outbond-nya aman semua. Outbound bukan cuma main, tapi beneran belajar team building.",
+      title: "Workshop Kurikulum",
+      location: "Bogor",
+      date: "5 Jan 2025",
+      time: "08:30 AM",
+      client: "Dinas Pendidikan Daerah",
+      testimonial: "Workshop berjalan profesional dan rapi. Semua peserta puas dengan pelayanannya!",
       images: [
-        "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://disdik.purwakartakab.go.id/uploads/berita/img_20221221_114336.jpg",
+        "https://disdik.purwakartakab.go.id/uploads/berita/img_20221221_114341.jpg",
       ],
     },
   ];
 
   return (
-    <section className="py-5 bg-light">
-      <div className="container">
-        <div className="text-center mb-5">
-          <h2 className="display-6 fw-bold text-primary mb-3">
-            Apa Kata Mitra Kami?
-          </h2>
-          <p className="text-muted mx-auto fs-5" style={{ maxWidth: "700px" }}>
-            Cerita inspiratif dari berbagai sekolah yang telah mempercayakan event edukasinya kepada EduEvent Pro.
-          </p>
-        </div>
+    <section className="container my-5">
+      <h2 className="mb-3 fw-bold text-center text-primary-custom">
+        Apa Kata Klien Kami
+      </h2>
+      <p className="text-center text-muted mb-4">
+        Cerita nyata dari acara nyata — kepercayaan yang tumbuh dari kepuasan
+        klien kami.
+      </p>
 
-        <div className="row g-4">
-          {testimonials.map((event, index) => (
-            <div className="col-lg-3 col-md-6" key={index}>
-              <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift bg-white">
-                <div style={{ height: "200px", position: "relative" }}>
-                   <img
-                     src={event.images[0]}
-                     className="w-100 h-100"
-                     style={{ objectFit: "cover" }}
-                     alt={event.title}
-                   />
-                   <div className="position-absolute bottom-0 start-0 p-3 w-100" style={{ background: "linear-gradient(to top, rgba(10,35,87,0.8), transparent)" }}>
-                      <span className="badge bg-white text-primary rounded-pill small">
-                        {event.title}
-                      </span>
-                   </div>
+      <div className="row g-4">
+        {testimonials.map((event, index) => {
+          const carouselId = `carousel-${index}`;
+          return (
+            <div className="col-md-3" key={index}>
+              <div className="card h-100 shadow-sm border-0 rounded-4 event-card overflow-hidden">
+                {/* Carousel */}
+                <div
+                  id={carouselId}
+                  className="carousel slide"
+                  data-bs-ride="carousel"
+                  data-bs-interval="2000"
+                >
+                  <div className="carousel-inner" style={{ height: "180px" }}>
+                    {event.images.map((img, imgIndex) => (
+                      <div
+                        key={imgIndex}
+                        className={`carousel-item ${
+                          imgIndex === 0 ? "active" : ""
+                        }`}
+                      >
+                        <img
+                          src={img}
+                          className="d-block w-100"
+                          style={{ objectFit: "cover", height: "180px" }}
+                          alt={`${event.title} ${imgIndex + 1}`}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="card-body p-4 position-relative">
-                  <div className="position-absolute top-0 end-0 m-3 opacity-10">
-                    <FaQuoteLeft size={40} className="text-primary" />
-                  </div>
-                  
-                  <p className="fst-italic text-dark mb-4 small" style={{ lineHeight: "1.6" }}>
+                <div className="card-body">
+                  <h5 className="card-title fw-semibold text-primary-custom">
+                    {event.title}
+                  </h5>
+                  <p className="card-text text-muted small mb-1">
+                    <i className="bi bi-geo-alt-fill me-2 text-danger"></i>
+                    {event.location}
+                  </p>
+                  <p className="card-text text-muted small mb-2">
+                    <i className="bi bi-calendar-event me-2 text-primary"></i>
+                    {event.date} • {event.time}
+                  </p>
+                  <p className="fst-italic text-muted small">
                     “{event.testimonial}”
                   </p>
-                  
-                  <div className="d-flex align-items-center gap-2 mt-auto">
-                    <div className="bg-primary p-2 rounded-circle">
-                       <FaGraduationCap color="white" size={14} />
-                    </div>
-                    <div>
-                      <h6 className="fw-bold mb-0 small text-primary">{event.client}</h6>
-                      <p className="text-muted mb-0" style={{ fontSize: "11px" }}>
-                        {event.location} • {event.date}
-                      </p>
-                    </div>
-                  </div>
+                  <p className="fw-medium text-end text-dark mb-0">
+                    — {event.client}
+                  </p>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );

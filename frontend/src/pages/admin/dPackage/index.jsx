@@ -23,11 +23,12 @@ export default function DaftarPackageEvent() {
 
   const columns = [
     { title: "ID", dataIndex: "id" },
-    { title: "Nama Event", dataIndex: "name" },
-    { title: "Paket", dataIndex: "description", render: (desc) => desc?.split('+')[0] || desc },
-    { title: "Durasi", dataIndex: "description", render: (desc) => desc?.split('+')[1] || "-" },
-    { title: "Target Peserta", dataIndex: "description", render: (desc) => desc?.split('+')[2] || "-" },
-    { title: "Harga (HTM)", dataIndex: "price", render: (price) => `Rp ${price?.toLocaleString("id-ID")}` },
+    { title: "Nama Package", dataIndex: "name" },
+    { title: "Deskripsi", dataIndex: "description" },
+    { title: "Durasi", dataIndex: "duration" },
+    { title: "Target Peserta", dataIndex: "target_audience" },
+    { title: "Harga", dataIndex: "price" },
+    { title: "Kategori", dataIndex: "category_name" },
     {
       title: "Gambar",
       dataIndex: "image",
@@ -36,7 +37,7 @@ export default function DaftarPackageEvent() {
           <img
             src={`${packagesImage}/${image}`}
             alt="Package"
-            style={{ width: "80px", height: "50px", objectFit: "cover", borderRadius: "8px" }}
+            style={{ width: "100px", objectFit: "cover" }}
           />
         ) : (
           "Tidak ada gambar"
@@ -56,6 +57,7 @@ export default function DaftarPackageEvent() {
         setCategories(categoriesData);
       } catch (error) {
         console.error("Gagal mengambil data:", error);
+        alert("Gagal mengambil data packages dan categories.");
       }
     };
 
@@ -76,89 +78,132 @@ export default function DaftarPackageEvent() {
       setShowForm(true);
     } catch (error) {
       console.error("Gagal ambil data packages:", error);
+      alert("Gagal ambil data packages untuk diedit.");
     }
   };
 
   const handleSubmit = async (dataFromForm) => {
-    try {
-      const payload = new FormData();
-      payload.append("name", dataFromForm.nama);
-      payload.append("description", dataFromForm.deskripsi);
-      payload.append("price", dataFromForm.harga);
-      payload.append("categories_id", dataFromForm.kategori_id);
+    if (packageEdit) {
+      try {
+        const payload = new FormData();
+        payload.append("name", dataFromForm.nama);
+        payload.append("description", dataFromForm.deskripsi);
+        payload.append("price", dataFromForm.harga);
+        payload.append("categories_id", dataFromForm.kategori_id);
 
-      if (dataFromForm.foto instanceof File) {
-        payload.append("image", dataFromForm.foto);
-      }
+        if (dataFromForm.foto instanceof File) {
+          payload.append("image", dataFromForm.foto);
+        }
 
-      if (packageEdit) {
         payload.append("_method", "PUT");
         await updatePackages(packageEdit.id, payload);
-      } else {
-        await createPackages(payload);
-      }
 
-      setShowForm(false);
-      setPackageEdit(null);
-      window.location.reload();
-    } catch (err) {
-      console.error("Gagal simpan package:", err);
+        setPackages((prevPackages) =>
+          prevPackages.map((pkg) =>
+            pkg.id === packageEdit.id ? { ...pkg, ...dataFromForm } : pkg
+          )
+        );
+
+        setPackageEdit(null);
+        setShowForm(false);
+
+        alert("Berhasil update package!");
+        window.location.reload();
+      } catch (err) {
+        console.error("Gagal update package:", err);
+        console.log("Data dari form:", dataFromForm);
+        alert("Terjadi kesalahan saat mengupdate package.");
+      }
+    } else {
+      try {
+        const payload = new FormData();
+        payload.append("name", dataFromForm.nama);
+        payload.append("description", dataFromForm.deskripsi);
+        payload.append("price", dataFromForm.harga);
+        payload.append("categories_id", dataFromForm.kategori_id);
+
+        if (dataFromForm.foto instanceof File) {
+          payload.append("image", dataFromForm.foto);
+        }
+
+        const savedPackages = await createPackages(payload, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+
+        setPackages([...packages, savedPackages]);
+        setShowForm(false);
+        window.location.reload();
+        alert("Berhasil menambahkan package!");
+      } catch (err) {
+        console.error(
+          "Gagal tambah package:",
+          err.response ? err.response.data : err
+        );
+        alert("Terjadi kesalahan saat menambahkan package.");
+      }
     }
   };
 
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm("Yakin ingin menghapus data ini?");
+    const paket = packages.find((k) => k.id === id);
+    const confirmDelete = window.confirm(
+      `Yakin ingin hapus packages "${paket?.name}"?`
+    );
+
     if (confirmDelete) {
       try {
         await deletePackages(id);
         setPackages((prev) => prev.filter((k) => k.id !== id));
+        alert("Berhasil menghapus packages");
       } catch (error) {
         console.error("Gagal hapus packages:", error);
+        alert("Gagal hapus packages, coba lagi.");
       }
     }
   };
 
   return (
-    <div className="d-flex" style={{ minHeight: "100vh", backgroundColor: "#f4f7f6" }}>
+    <div className="d-flex" style={{ minHeight: "100vh" }}>
       <Sidebar />
       <div className="flex-grow-1">
         <Topbar />
         <div className="p-4">
-          <div className="d-flex justify-content-between align-items-center mb-4">
-            <h4 className="fw-bold text-primary m-0">Manajemen Event</h4>
+          <div className="mb-3 text-end">
             <button
-              className="btn btn-primary px-4"
+              className="btn btn-success"
               onClick={() => {
                 setPackageEdit(null);
                 setShowForm(true);
               }}
             >
-              + Tambah Event
+              + Tambah Data
             </button>
           </div>
 
-          <div style={{ marginTop: "-10px" }}>
+          <div style={{ marginTop: "-20px" }}>
             <TableCard
-              title="Daftar Program Pendidikan"
+              title="Daftar Package Event"
               columns={columns}
               data={packages}
               renderAction={(paket) => (
-                <div className="d-flex gap-2">
+                <>
                   <button
-                    className="btn btn-sm btn-outline-warning"
+                    className="btn btn-sm btn-warning me-2"
                     onClick={() => handleChange(paket)}
                     title="Edit"
                   >
                     <FaEdit />
                   </button>
                   <button
-                    className="btn btn-sm btn-outline-danger"
+                    className="btn btn-sm btn-danger"
                     onClick={() => handleDelete(paket.id)}
                     title="Hapus"
                   >
                     <FaTrash />
                   </button>
-                </div>
+                </>
               )}
             />
           </div>

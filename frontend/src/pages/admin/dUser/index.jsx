@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaComments } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sidebar from "../../../components/admin/sidebar";
 import Topbar from "../../../components/admin/topbar";
@@ -7,6 +8,7 @@ import TableCard from "../../../components/admin/table";
 import { deleteUsers, getUsers } from "../../../_services/user";
 
 export default function DUser() {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
 
   const columns = [
@@ -56,7 +58,14 @@ export default function DUser() {
               columns={columns}
               data={users}
               renderAction={(users) => (
-                <>
+                <div className="d-flex gap-2">
+                  <button
+                    className="btn btn-sm btn-primary"
+                    onClick={() => navigate(`/admin/users/chat/${users.id}`)}
+                    title="Chat User"
+                  >
+                    <FaComments />
+                  </button>
                   <button
                     className="btn btn-sm btn-danger"
                     onClick={() => handleDelete(users.id)}
@@ -64,7 +73,7 @@ export default function DUser() {
                   >
                     <FaTrash />
                   </button>
-                </>
+                </div>
               )}
             />
           </div>

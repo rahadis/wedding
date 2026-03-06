@@ -6,27 +6,27 @@ export default function Fact() {
     {
       question: "Layanan apa saja yang ditawarkan EduEvent Pro?",
       answer:
-        "EduEvent Pro menyediakan layanan lengkap untuk kegiatan edukasi seperti MPLS, LDKMS, seminar akademik, hingga wisuda. Kami menangani konsep acara, pemateri, dekorasi, hingga dokumentasi.",
+        "EduEvent Pro menyediakan layanan lengkap untuk berbagai jenis acara pendidikan seperti MPLS, LDKMS, Seminar, hingga Workshop. Termasuk dekorasi, sistem suara, katering, dan dokumentasi.",
     },
     {
-      question: "Apakah saya bisa menyesuaikan paket dengan kurikulum sekolah?",
+      question: "Apakah saya bisa meminta tema acara khusus?",
       answer:
-        "Tentu saja! Kami selalu menyesuaikan konsep acara dengan nilai-nilai dan kurikulum yang diterapkan di institusi pendidikan Anda.",
+        "Tentu saja! Tim kreatif EduEvent Pro siap mewujudkan ide dan konsep acara impian Anda.",
     },
     {
       question: "Bagaimana proses pemesanan di EduEvent Pro?",
       answer:
-        "Anda bisa melakukan pemesanan melalui website kami. Tim kami akan segera menghubungi untuk diskusi detail konsep dan jadwal pelaksanaan.",
+        "Anda bisa memesan langsung melalui website kami atau konsultasi via WhatsApp. Setelah dikonfirmasi, kami akan mengirimkan invoice dan timeline produksi acara.",
     },
     {
-      question: "Apakah EduEvent Pro menyediakan pemateri atau instruktur?",
+      question: "Apakah saya bisa membatalkan setelah booking?",
       answer:
-        "Ya, kami memiliki jaringan pemateri profesional dan instruktur berpengalaman untuk berbagai tema pelatihan dan seminar.",
+        "Bisa, namun akan dikenakan biaya pembatalan sesuai dengan waktu pembatalan berdasarkan kebijakan EduEvent Pro.",
     },
     {
-      question: "Area mana saja yang dilayani oleh EduEvent Pro?",
+      question: "EduEvent Pro melayani area mana saja?",
       answer:
-        "EduEvent Pro melayani institusi pendidikan di seluruh Indonesia dengan sistem koordinasi yang terintegrasi secara profesional.",
+        "Kami berbasis di Jawa Barat, namun EduEvent Pro siap mengorganisir acara di seluruh Indonesia dengan penyesuaian transportasi dan akomodasi.",
     },
   ];
   

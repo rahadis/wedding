@@ -9,3 +9,8 @@ export const sendUserMessage = async (message) => {
   const { data } = await API.post("/chat/user", { message });
   return data;
 };
+
+export const sendAdminMessage = async (userId, message) => {
+  const { data } = await API.post(`/chat/admin/${userId}`, { message });
+  return data;
+};

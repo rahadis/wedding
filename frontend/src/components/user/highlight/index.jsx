@@ -14,11 +14,9 @@ export default function Highlight() {
   }, []);
 
   const icon = [
-    { name: "Wedding", icon: "fa-ring" },
-    { name: "Birthday", icon: "fa-birthday-cake" },
-    { name: "Concert & Entertainment", icon: "fa-briefcase" },
-    { name: "Graduation Party", icon: "fa-graduation-cap" },
-    { name: "Engagement", icon: "fa-heart" },
+    { name: "MPLS", icon: "fa-school" },
+    { name: "LDKMS", icon: "fa-people-group" },
+    { name: "Seminar", icon: "fa-person-chalkboard" },
   ];
   
   return (

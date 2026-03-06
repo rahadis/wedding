@@ -5,7 +5,7 @@ export default function AboutUs() {
       <div
         className="py-5 px-4 px-md-5"
         style={{
-          backgroundColor: "#0a2357",
+          backgroundImage: "url('/BgFlower.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           borderRadius: "16px",
@@ -24,7 +24,7 @@ export default function AboutUs() {
             textShadow: "0 2px 16px rgba(0,0,0,0.18)"
           }}
         >
-          EDUCATIONAL EVENT EXPERTS
+          EVENT ORGANIZER
         </h2>
         <p
           style={{
@@ -37,7 +37,7 @@ export default function AboutUs() {
             textShadow: "0 2px 8px rgba(0,0,0,0.10)"
           }}
         >
-          EduEvent Pro adalah mitra profesional dalam menyelenggarakan berbagai kegiatan edukasi, mulai dari orientasi siswa (MPLS), pelatihan kepemimpinan (LDKMS), hingga seminar akademik. Kami berkomitmen menciptakan pengalaman belajar yang inspiratif dan berkesan bagi seluruh civitas akademika.
+          Kami adalah spesialis Event Organizer Pendidikan yang siap menciptakan momen akademik yang berkesan. Tim kami ahli dalam merancang MPLS, LDKMS, Wisuda, dan Seminar Edukasi yang inspiratif bagi siswa dan instansi pendidikan.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export default function AboutUs() {
         <div className="col-md-6">
           <h3
             style={{
-              color: "#0a2357",
+              color: "#BC691C",
               fontFamily: "Poppins, sans-serif",
               fontWeight: 700,
               marginBottom: "18px",
@@ -63,15 +63,15 @@ export default function AboutUs() {
               textAlign: "justify",
             }}
           >
-            EduEvent Pro adalah penyedia layanan manajemen acara pendidikan yang berfokus pada pengembangan potensi siswa dan mahasiswa. Dengan pengalaman luas dalam menangani berbagai skala acara sekolah dan universitas, kami hadir untuk mempermudah institusi dalam menyelenggarakan kegiatan berkualitas tinggi.
+            EduEvent Pro melayani jasa event organizer (EO) pendidikan yang telah berpengalaman dalam menyelenggarakan berbagai event akademik, seperti MPLS, LDKMS, wisuda, hingga seminar edukasi dengan konsep yang inspiratif dan menarik.
             <br /><br />
-            Tim kami terdiri dari para ahli yang memahami dinamika dunia pendidikan. Kami melayani berbagai kebutuhan, mulai dari Masa Pengenalan Lingkungan Sekolah (MPLS), Latihan Dasar Kepemimpinan Mahasiswa/Siswa (LDKMS), seminar nasional, hingga wisuda. EduEvent Pro berkomitmen untuk memberikan solusi kreatif dan terorganisir, sehingga institusi pendidikan dapat fokus pada esensi pembelajaran sementara kami menangani detail operasional acara.
+            Tim event organizer (EO) EduEvent Pro akan merancang acara sesuai dengan kebutuhan pendidikan Anda dan membuka diskusi untuk bertukar ide rancangan acara yang akan diselenggarakan nanti. Berbagai instansi pendidikan telah mempercayakan EO kami untuk menyelenggarakan kegiatan kesiswaan serta seminar nasional dan kami juga sebagai EO profesional selalu menentukan venue yang tepat untuk acara Anda. Kami fokus pada memberikan pengalaman yang meriah dan edukatif untuk siswa, guru, hingga praktisi pendidikan.
           </p>
         </div>
         <div className="col-md-6 d-flex justify-content-center">
           <img
             src="/image1.png"
-            alt="Event Pora"
+            alt="EduEvent Pro"
             style={{
               maxWidth: "100%",
               borderRadius: "12px",

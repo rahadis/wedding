@@ -77,9 +77,9 @@ export default function DaftarTransaksi() {
               columns={columns}
               data={transactions}
               renderAction={(transaksi) => (
-                <>
+                <div className="d-flex gap-1">
                   <button
-                    className="btn btn-sm btn-primary sm-2"
+                    className="btn btn-sm btn-primary me-1"
                     onClick={() => navigate(`/admin/event-report/${transaksi.id}`)}
                   >
                     Buat Laporan
@@ -92,7 +92,7 @@ export default function DaftarTransaksi() {
                   >
                     <FaTrash />
                   </button>
-                </>
+                </div>
               )}
             />
           </div>

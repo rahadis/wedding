@@ -4,10 +4,11 @@ import {
   FaDatabase,
   FaMoneyBill,
   FaCalendarAlt,
+  FaComments,
+  FaCog,
   FaSignOutAlt,
   FaChevronDown,
   FaChevronUp,
-  FaGraduationCap,
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
 import { logout } from "../../../_services/auth";
@@ -18,131 +19,215 @@ export default function Sidebar() {
 
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const handleLogout = async () => {
     if (token) {
-      await logout();
+      await logout({ token, userInfo });
     }
-    localStorage.clear();
     navigate("/login");
   };
 
   return (
     <div
-      className="text-white shadow-lg"
+      className="text-white"
       style={{
-        width: "260px",
+        width: "250px",
         height: "calc(100vh - 40px)",
-        margin: "20px",
-        borderRadius: "20px",
-        background: "linear-gradient(180deg, #0a2357 0%, #153e90 100%)",
+        marginTop: "20px",
+        marginLeft: "20px",
+        marginBottom: "20px",
+        borderRadius: "15px",
+        background: "#033b5d",
         display: "flex",
         flexDirection: "column",
-        padding: "1.5rem",
-        zIndex: 1000,
+        padding: "1rem",
       }}
     >
-      <div className="mb-5 d-flex align-items-center gap-3">
-        <div 
-          className="bg-white rounded-circle d-flex align-items-center justify-content-center"
-          style={{ width: "45px", height: "45px" }}
-        >
-          <FaGraduationCap size={24} color="#0a2357" />
-        </div>
-        <h5 className="mb-0 fw-bold letter-spacing-1">EduEvent Pro</h5>
-      </div>
+      <h4 className="mb-4 d-flex align-items-center justify-content-start gap-2">
+        <img
+          src="/logo.png"
+          alt="Profile"
+          style={{
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            objectFit: "cover",
+            border: "2px solid white",
+          }}
+        />
+        EduEvent Pro
+      </h4>
 
-      <ul className="nav flex-column gap-3 flex-grow-1">
-        <li className="nav-item">
+      <ul className="nav flex-column gap-2">
+        <li className="nav-item d-flex align-items-center gap-2">
+          <FaHome />
           <Link
             to="/admin/dashboard"
-            className="text-white text-decoration-none d-flex align-items-center gap-3 p-2 rounded-3 hover-bg-light"
-            style={{ transition: "all 0.3s" }}
+            className="text-white text-decoration-none"
           >
-            <FaHome size={18} />
-            <span>Dashboard</span>
+            Dashboard
           </Link>
         </li>
 
-        <li className="nav-item">
+        <li className="nav-item position-relative">
           <div
-            className="d-flex align-items-center gap-3 p-2 rounded-3 cursor-pointer"
-            style={{ transition: "all 0.3s" }}
+            className="d-flex align-items-center gap-2"
+            style={{ cursor: "pointer" }}
             onClick={() => setOpenKelola(!openKelola)}
           >
-            <FaDatabase size={18} />
-            <span>Kelola Data</span>
+            <FaDatabase /> Kelola data
             <span style={{ marginLeft: "auto" }}>
-              {openKelola ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+              {openKelola ? <FaChevronUp /> : <FaChevronDown />}
             </span>
           </div>
 
           {openKelola && (
-            <ul className="nav flex-column mt-2 ms-4 gap-2 border-start border-white border-opacity-25 ps-3">
-              <li className="nav-item">
-                <Link to="/admin/users" className="text-white-50 text-decoration-none small hover-text-white">
-                  Data Siswa/User
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/admin/package" className="text-white-50 text-decoration-none small hover-text-white">
-                  Program & Event
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/admin/kategori" className="text-white-50 text-decoration-none small hover-text-white">
-                  Kategori Layanan
-                </Link>
-              </li>
-            </ul>
+            <div
+              style={{
+                position: "relative",
+                paddingLeft: "16px",
+                marginTop: "8px",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  left: "4px",
+                  top: 0,
+                  bottom: 0,
+                  width: "2px",
+                  backgroundColor: "white",
+                  borderRadius: "2px",
+                }}
+              />
+              <ul className="nav flex-column mt-2 gap-1">
+                <li className="nav-item" style={{ paddingLeft: "12px" }}>
+                  <Link
+                    to="/admin/users"
+                    className="text-white text-decoration-none"
+                  >
+                    Data Users
+                  </Link>
+                </li>
+                <li className="nav-item" style={{ paddingLeft: "12px" }}>
+                  <Link
+                    to="/admin/admin"
+                    className="text-white text-decoration-none"
+                  >
+                    Data Admin
+                  </Link>
+                </li>
+                <li className="nav-item" style={{ paddingLeft: "12px" }}>
+                  <Link
+                    to="/admin/kategori"
+                    className="text-white text-decoration-none"
+                  >
+                    Data Kategori
+                  </Link>
+                </li>
+                <li className="nav-item" style={{ paddingLeft: "12px" }}>
+                  <Link
+                    to="/admin/package"
+                    className="text-white text-decoration-none"
+                  >
+                    Data Package
+                  </Link>
+                </li>
+              </ul>
+            </div>
           )}
         </li>
 
-        <li className="nav-item">
+        <li className="nav-item position-relative">
           <div
-            className="d-flex align-items-center gap-3 p-2 rounded-3 cursor-pointer"
+            className="d-flex align-items-center gap-2"
+            style={{ cursor: "pointer" }}
             onClick={() => setOpenTransaksi(!openTransaksi)}
           >
-            <FaMoneyBill size={18} />
-            <span>Keuangan</span>
+            <FaMoneyBill /> Transaksi
             <span style={{ marginLeft: "auto" }}>
-              {openTransaksi ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+              {openTransaksi ? <FaChevronUp /> : <FaChevronDown />}
             </span>
           </div>
 
           {openTransaksi && (
-            <ul className="nav flex-column mt-2 ms-4 gap-2 border-start border-white border-opacity-25 ps-3">
-              <li className="nav-item">
-                <Link to="/admin/transaksi" className="text-white-50 text-decoration-none small hover-text-white">
-                  Daftar Pendaftaran
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/admin/laporan" className="text-white-50 text-decoration-none small hover-text-white">
-                  Laporan Pendapatan
-                </Link>
-              </li>
-            </ul>
+            <div
+              style={{
+                position: "relative",
+                paddingLeft: "16px",
+                marginTop: "8px",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  left: "4px",
+                  top: 0,
+                  bottom: 0,
+                  width: "2px",
+                  backgroundColor: "white",
+                  borderRadius: "2px",
+                }}
+              />
+              <ul className="nav flex-column mt-2 gap-1">
+                <li className="nav-item" style={{ paddingLeft: "12px" }}>
+                  <Link
+                    to="/admin/transaksi"
+                    className="text-white text-decoration-none"
+                  >
+                    Daftar Transaksi
+                  </Link>
+                </li>
+                <li className="nav-item" style={{ paddingLeft: "12px" }}>
+                  <Link
+                    to="/admin/laporan"
+                    className="text-white text-decoration-none"
+                  >
+                    Laporan Konfirmasi
+                  </Link>
+                </li>
+                <li className="nav-item" style={{ paddingLeft: "12px" }}>
+                  <Link
+                    to="/admin/event-reports"
+                    className="text-white text-decoration-none"
+                  >
+                    Laporan Event
+                  </Link>
+                </li>
+                
+              </ul>
+            </div>
           )}
         </li>
 
-        <li className="nav-item">
+        <li className="nav-item d-flex align-items-center gap-2">
+          <FaCalendarAlt />
           <Link 
             to="/admin/event" 
-            className="text-white text-decoration-none d-flex align-items-center gap-3 p-2 rounded-3"
+            className="text-white text-decoration-none"
           >
-            <FaCalendarAlt size={18} />
-            <span>Jadwal Event</span>
+            Event
+          </Link>
+        </li>
+
+        <li className="nav-item d-flex align-items-center gap-2">
+          <FaComments />
+          <Link 
+            to="/admin/users" 
+            className="text-white text-decoration-none"
+          >
+            Chat Pelanggan
           </Link>
         </li>
       </ul>
 
       <div
-        className="mt-auto d-flex align-items-center gap-3 p-2 rounded-3 text-white-50 cursor-pointer hover-text-white"
+        className="mt-auto d-flex align-items-center gap-2"
+        style={{ cursor: "pointer" }}
         onClick={handleLogout}
       >
-        <FaSignOutAlt size={18} />
-        <span>Keluar Sistem</span>
+        <FaSignOutAlt /> Keluar
       </div>
     </div>
   );
