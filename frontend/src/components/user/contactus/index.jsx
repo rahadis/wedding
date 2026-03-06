@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Contactus() {
   return (
     <section className="container my-5" id="contact">
@@ -35,6 +37,16 @@ export default function Contactus() {
             <span style={{ fontWeight: 500, textAlign: "left" }}>
               Jl. Jend. Basuki Rachmat No. 8-12, Surabaya, Jawa Timur 60261, Indonesia.
             </span>
+          </div>
+          <div className="mb-4">
+            <Link
+              to="/chat"
+              className="btn btn-outline-primary d-flex align-items-center justify-content-center gap-2 fw-bold"
+              style={{ borderColor: "#014AB0", color: "#014AB0" }}
+            >
+              <i className="fa-solid fa-comments"></i>
+              Chat Live Sekarang
+            </Link>
           </div>
           <div className="rounded overflow-hidden mt-3" style={{ border: "1px solid #eee", width: "100%", minHeight: "160px" }}>
             <iframe
