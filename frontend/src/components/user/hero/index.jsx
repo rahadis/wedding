@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../../styles/hero.css";
 
 export default function Hero() {
@@ -18,7 +19,14 @@ export default function Hero() {
           <h1 className="hero-title fw-bold mb-4">
             MAKE YOUR EDUCATIONAL EVENTS <br /> WITH EDUEVENT PRO
           </h1>
-          <hr className="hero-divider" />
+          <hr className="hero-divider mb-5" />
+          <Link
+            to="/chat"
+            className="btn btn-primary btn-lg px-5 py-3 fw-bold rounded-pill shadow"
+            style={{ backgroundColor: "#014AB0", fontSize: "1.2rem" }}
+          >
+            Konsultasi Sekarang
+          </Link>
         </div>
       </div>
 

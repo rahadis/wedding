@@ -4,6 +4,7 @@ import {
   FaDatabase,
   FaMoneyBill,
   FaCalendarAlt,
+  FaComments,
   FaCog,
   FaSignOutAlt,
   FaChevronDown,
@@ -207,6 +208,16 @@ export default function Sidebar() {
             className="text-white text-decoration-none"
           >
             Event
+          </Link>
+        </li>
+
+        <li className="nav-item d-flex align-items-center gap-2">
+          <FaComments />
+          <Link
+            to="/admin/users"
+            className="text-white text-decoration-none"
+          >
+            Chat Pelanggan
           </Link>
         </li>
       </ul>
