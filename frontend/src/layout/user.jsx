@@ -12,7 +12,7 @@ const UserLayout = ({ children, isLoggedIn, username, onLogout }) => {
       <div style={{ paddingTop: "90px" }}>{children}</div>
       <Link
         to="/chat"
-        className="btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center"
+        className="btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center floating-chat-btn"
         style={{
           position: "fixed",
           bottom: "30px",
