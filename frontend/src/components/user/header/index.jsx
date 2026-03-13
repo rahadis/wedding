@@ -58,13 +58,6 @@ export default function Header() {
                 Contact
               </Link>
             </li>
-            {token && (
-              <li className="nav-item">
-                <Link to="/chat" className="nav-link nav-link-custom">
-                  Chat
-                </Link>
-              </li>
-            )}
           </ul>
 
           {/* Register & Login */}

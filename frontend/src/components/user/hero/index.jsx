@@ -20,13 +20,6 @@ export default function Hero() {
             MAKE YOUR EDUCATIONAL EVENTS <br /> WITH EDUEVENT PRO
           </h1>
           <hr className="hero-divider mb-5" />
-          <Link
-            to="/chat"
-            className="btn btn-primary btn-lg px-5 py-3 fw-bold rounded-pill shadow"
-            style={{ backgroundColor: "#014AB0", fontSize: "1.2rem" }}
-          >
-            Konsultasi Sekarang
-          </Link>
         </div>
       </div>
 

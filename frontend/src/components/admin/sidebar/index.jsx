@@ -213,8 +213,8 @@ export default function Sidebar() {
 
         <li className="nav-item d-flex align-items-center gap-2">
           <FaComments />
-          <Link 
-            to="/admin/users" 
+          <Link
+            to="/admin/users"
             className="text-white text-decoration-none"
           >
             Chat Pelanggan
